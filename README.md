@@ -88,5 +88,8 @@ export const styles = StyleSheet.create({
 const [isNotKnow, setIsNotKnow] = useState(false);
 ```
 9. Todo componente/página deve ser criado com uma pasta separada, dentro dela há um arquivo **index.js** e um arquivo **style.js**.
-
-![image](https://user-images.githubusercontent.com/58981172/131723093-bbf5712e-0f8f-4877-8e11-89f0717344d4.png)
+<div>
+ <img src="/assets/reamd.png" width="100" alt="NOssa Logo"/>
+ 
+ 
+</div>
