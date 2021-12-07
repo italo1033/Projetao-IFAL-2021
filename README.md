@@ -1,5 +1,5 @@
 <div align="center">
- <img src="/assets/litro-de-luz-icon.png" width="100"/>
+ <img src="/assets/" width="100" alt="NOssa Logo"/>
  
  <h1>Projetão Receita de Geladeira</h1>
 </div>
