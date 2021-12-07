@@ -1,5 +1,5 @@
 <div align="center">
- <img src="/assets/" width="100" alt="NOssa Logo"/>
+ <img src="" width="100" alt="Logo"/>
  
  <h1>Projetão Receita de Geladeira</h1>
 </div>
@@ -89,7 +89,6 @@ const [isNotKnow, setIsNotKnow] = useState(false);
 ```
 9. Todo componente/página deve ser criado com uma pasta separada, dentro dela há um arquivo **index.js** e um arquivo **style.js**.
 <div>
- <img src="/assets/reamd.png" width="100" alt="NOssa Logo"/>
- 
- 
+ <img src="/App/assets/reamd.png" width="100" alt="Demonstração de como deve ficar"/>
+
 </div>
