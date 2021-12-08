@@ -16,25 +16,40 @@ export function Cadastro({navigation}) {
   const [email, setEmail] = useState(null)
   const [errorEmail, setErrorEmail] = useState(null)
 
-  //picler
+  //picker
   const [value, setValue] = React.useState('first');
+
+  //CPF
+  const [cpf, setCpf] = useState(null)
+  const [errorCpf, setErrorCpf] = useState(null)
+
+
 
 
   const validar = () => {
     let error = false
-    setValidationContato(null)
 
-    const regex = /^\(\d{2}\) \d{4,5}-\d{4}$/gi;
-    if(!regex.test(contato)) {
+
+    setValidationContato(null)
+    const regexContato = /^\(\d{2}\) \d{4,5}-\d{4}$/gi;
+    if(!regexContato.test(contato)) {
       setValidationContato("Preencha seu contato")
       error = true
     }
 
 
     setErrorEmail(null)
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    if (!re.test(String(email).toLowerCase())){
+    const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!regexEmail.test(String(email).toLowerCase())){
       setErrorEmail("Preencha seu e-mail corretamente")
+      error = true
+    }
+
+
+    setErrorCpf(null)
+    const regexCPF =/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
+    if (!regexCPF.test(String(cpf).toLowerCase())){
+      setErrorCpf("Preencha seu CPF corretamente")
       error = true
     }
 
@@ -53,7 +68,7 @@ export function Cadastro({navigation}) {
       <Text>Contato:</Text>
       <Input 
       keyboardType="phone-pad" 
-      placeholder="Contato" 
+      placeholder="(82)99999-9999" 
       onChangeText={value => {
         setContato(value)
         setValidationContato(null)
@@ -68,6 +83,8 @@ export function Cadastro({navigation}) {
       placeholder="Complemento" 
       returnKeyType="done"/>
 
+      <Text>sexo:</Text>
+
       {/*Kenysson*/}
       <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
         <View>
@@ -80,8 +97,10 @@ export function Cadastro({navigation}) {
         </View>
       </RadioButton.Group>
 
+
+      <Text>Email:</Text>
       <Input
-        placeholder="E-mail"
+        placeholder="receitas12@gmail.com"
         onChangeText={value => {
             setEmail(value)
             setErrorEmail(null)
@@ -89,6 +108,16 @@ export function Cadastro({navigation}) {
         keyboardType="email-address"
         errorMessage={errorEmail}        
         />
+
+        {/* Italo */}
+
+        <Text>CPF:</Text>
+        <Input 
+          keyboardType="number-pad" 
+          placeholder="142.832.344-24" 
+          onChangeText={value => setCpf(value)}
+          returnKeyType="done" 
+          errorMessage={errorCpf}/>
 
 
     <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
