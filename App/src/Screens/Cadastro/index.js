@@ -64,7 +64,8 @@ export function Cadastro({navigation}) {
 
     // validando Nome
     setErrorNome(null)
-    if (nome == "") {
+    const regexNome= /[^a-zà-ú]/gi
+    if (!regexNome.test(nome)) {
       setErrorNome("Por favor preencha todos os campos")
       error = true
     }
