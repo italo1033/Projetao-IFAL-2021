@@ -27,6 +27,10 @@ export function Cadastro({navigation}) {
   const [nome, setNome] = useState(null)
   const [errorNome, setErrorNome] = useState(null)
 
+    //CEP
+    const [CEP, setCEP] = useState(null)
+    const [errorCEP, setErrorCEP] = useState(null)
+
 
 
 
@@ -65,6 +69,15 @@ export function Cadastro({navigation}) {
       error = true
     }
 
+    
+    setErrorCEP(null)
+    const regexCEP = 	/^\d{5}-\d{3}$/
+    if (!regexCEP.test(CEP)){
+      setErrorCEP("Preencha seu CEP corretamente")
+      error = true
+    }
+    
+
     return !error
   }
 
@@ -81,6 +94,7 @@ export function Cadastro({navigation}) {
       {/* Italo */}
       <Text>Nome:</Text>
       <Input
+          keyboardType="default" 
           placeholder="Maria dos Santos" 
           onChangeText={value => setNome(value)}
           returnKeyType="done" 
@@ -95,6 +109,16 @@ export function Cadastro({navigation}) {
           onChangeText={value => setCpf(value)}
           returnKeyType="done" 
           errorMessage={errorCpf}
+      />
+
+      {/* Alex */}
+      <Text>CPF:</Text>
+      <Input 
+          keyboardType="number-pad" 
+          placeholder="00000-000" 
+          onChangeText={value => setCEP(value)}
+          returnKeyType="done" 
+          errorMessage={errorCEP}
       />
 
       {/*Lara Fernanda*/}
@@ -141,6 +165,14 @@ export function Cadastro({navigation}) {
       keyboardType="default" 
       placeholder="Complemento" 
       returnKeyType="done"/>
+
+      {/*Alex*/}
+      <Text>Lagradouro:</Text>
+      <Input 
+      keyboardType="default" 
+      placeholder="Lagradouro" 
+      returnKeyType="done"/>
+
 
     <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
         <Text style={{color:"#fff"}}> Cadastrar </Text>
