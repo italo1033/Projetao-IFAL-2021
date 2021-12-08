@@ -2,12 +2,23 @@ import React, { useState }  from 'react';
 import { styles } from './style.js';
 import { TouchableOpacity, View } from 'react-native';
 import { Input, Button, Text } from 'react-native-elements';
+import { RadioButton } from 'react-native-paper';
 
 
 export function Cadastro({navigation}) {
 
+
+  //Contato
   const [ validationContato, setValidationContato ] = useState(null);
   const [ contato, setContato ] = useState(null);
+
+  //email
+  const [email, setEmail] = useState(null)
+  const [errorEmail, setErrorEmail] = useState(null)
+
+  //picler
+  const [value, setValue] = React.useState('first');
+
 
   const validar = () => {
     let error = false
@@ -17,7 +28,15 @@ export function Cadastro({navigation}) {
     if(!regex.test(contato)) {
       setValidationContato("Preencha seu contato")
       error = true
-    } 
+    }
+
+
+    setErrorEmail(null)
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!re.test(String(email).toLowerCase())){
+      setErrorEmail("Preencha seu e-mail corretamente")
+      error = true
+    }
 
     return !error
   }
@@ -49,16 +68,31 @@ export function Cadastro({navigation}) {
       placeholder="Complemento" 
       returnKeyType="done"/>
 
-      <Button 
-      title="Cadastrar"
-      size={15}
+      {/*Kenysson*/}
+      <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
+        <View>
+          <Text>Masculino</Text>
+          <RadioButton value="first" />
+        </View>
+        <View>
+          <Text>Feminino</Text>
+          <RadioButton value="second" />
+        </View>
+      </RadioButton.Group>
 
-      onPress={() => salvarDados()}
-      />
+      <Input
+        placeholder="E-mail"
+        onChangeText={value => {
+            setEmail(value)
+            setErrorEmail(null)
+        }}
+        keyboardType="email-address"
+        errorMessage={errorEmail}        
+        />
 
 
-    <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Login')}>
-        <Text style={{color:"#fff"}}> Tela Login </Text>
+    <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
+        <Text style={{color:"#fff"}}> Cadastrar </Text>
     </TouchableOpacity>
     
     </View>
