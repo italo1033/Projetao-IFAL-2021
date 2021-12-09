@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
 import { TouchableOpacity, View } from 'react-native';
-import { Input, Button, Text } from 'react-native-elements';
+import { Input, Text } from 'react-native-elements';
 import { RadioButton } from 'react-native-paper';
 
 
@@ -27,9 +27,9 @@ export function Cadastro({navigation}) {
   const [nome, setNome] = useState(null)
   const [errorNome, setErrorNome] = useState(null)
 
-    //CEP
-    const [CEP, setCEP] = useState(null)
-    const [errorCEP, setErrorCEP] = useState(null)
+  //CEP
+  const [CEP, setCEP] = useState(null)
+  const [errorCEP, setErrorCEP] = useState(null)
 
 
 
