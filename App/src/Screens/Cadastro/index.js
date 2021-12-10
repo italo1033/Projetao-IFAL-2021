@@ -7,11 +7,6 @@ import { RadioButton } from 'react-native-paper';
 
 export function Cadastro({navigation}) {
 
-
-  //Contato
-  const [ validationContato, setValidationContato ] = useState(null);
-  const [ contato, setContato ] = useState(null);
-
   //email
   const [email, setEmail] = useState(null)
   const [errorEmail, setErrorEmail] = useState(null)
@@ -27,23 +22,14 @@ export function Cadastro({navigation}) {
   const [nome, setNome] = useState(null)
   const [errorNome, setErrorNome] = useState(null)
 
-  //CEP
-  const [CEP, setCEP] = useState(null)
-  const [errorCEP, setErrorCEP] = useState(null)
-
-
-
+  //Senha
+  const [senha, setSenha] = useState(null)
+  const [errorSenha, setErrorSenha] = useState(null)
 
   const validar = () => {
     let error = false
 
-    // Validando Contato
-    setValidationContato(null)
-    const regexContato = /^\(\d{2}\) \d{4,5}-\d{4}$/gi;
-    if(!regexContato.test(contato)) {
-      setValidationContato("Preencha seu contato")
-      error = true
-    }
+   
 
     // Validando Email
     setErrorEmail(null)
@@ -70,14 +56,13 @@ export function Cadastro({navigation}) {
       error = true
     }
 
-    
-    setErrorCEP(null)
-    const regexCEP = 	/^\d{5}-\d{3}$/
-    if (!regexCEP.test(CEP)){
-      setErrorCEP("Preencha seu CEP corretamente")
+    // validando Senha
+    setErrorSenha(null)
+    const regexSenha= /^[a-z0-9_-]/
+    if (!regexSenha.test(senha)) {
+      setErrorSenha("Por favor preencha todos os campos")
       error = true
     }
-    
 
     return !error
   }
@@ -112,29 +97,6 @@ export function Cadastro({navigation}) {
           errorMessage={errorCpf}
       />
 
-      {/* Alex */}
-      <Text>CPF:</Text>
-      <Input 
-          keyboardType="number-pad" 
-          placeholder="00000-000" 
-          onChangeText={value => setCEP(value)}
-          returnKeyType="done" 
-          errorMessage={errorCEP}
-      />
-
-      {/*Lara Fernanda*/}
-      <Text>Contato:</Text>
-      <Input 
-            keyboardType="phone-pad" 
-            placeholder="(82)99999-9999" 
-            onChangeText={value => {
-              setContato(value)
-              setValidationContato(null)
-            }}
-            returnKeyType="done" 
-            errorMessage={validationContato}
-      /> 
-
       {/*Kenysson*/}
       <Text>Email:</Text>
       <Input
@@ -143,37 +105,19 @@ export function Cadastro({navigation}) {
                 setEmail(value)
                 setErrorEmail(null)
             }}
-            keyboardType="email-address"
+            
             errorMessage={errorEmail}        
         />
-      
-      {/*Kenysson*/}
-      <Text>sexo:</Text>
-      <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
-            <View>
-                  <Text>Masculino</Text>
-                  <RadioButton value="first" />
-            </View>
-            <View>
-                  <Text>Feminino</Text>
-                  <RadioButton value="second" />
-            </View>
-      </RadioButton.Group>
 
-      {/*Lara Fernanda*/}
-      <Text>Complemento:</Text>
-      <Input 
-      keyboardType="default" 
-      placeholder="Complemento" 
-      returnKeyType="done"/>
-
-      {/*Alex*/}
-      <Text>Lagradouro:</Text>
-      <Input 
-      keyboardType="default" 
-      placeholder="Lagradouro" 
-      returnKeyType="done"/>
-
+      <Text>Senha:</Text>
+      <Input
+            placeholder="Digite sua senha"
+            onChangeText = {value => {
+              setSenha(value)
+            }}
+            returnKeyType="done"
+            errorMessage={errorSenha}      
+        />
 
     <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
         <Text style={{color:"#fff"}}> Cadastrar </Text>
