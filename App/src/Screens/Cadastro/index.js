@@ -1,11 +1,37 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, Button, Image, StyleSheet } from 'react-native';
 import { Input, Text } from 'react-native-elements';
-import { RadioButton } from 'react-native-paper';
+import * as Facebook from "expo-facebook";
+
 
 
 export function Cadastro({navigation}) {
+
+  const [user, setUser] = useState(null);
+
+  const signUpFacebook = async () => {
+    try {
+      await Facebook.initializeAsync("651857032664740");
+      const { type, token } = await Facebook.logInWithReadPermissionsAsync({
+        permissions: ["public_profile", "email"],
+      });
+      if (type === "success") {
+        // Get the user's name using Facebook's Graph API
+        const response = await fetch(
+          //`https://graph.facebook.com/me?access_token=${token}`
+          `https://graph.facebook.com/me?fields=id,name,picture.type(large),email&access_token=${token}`
+        );
+        // console.log((await response.json()).name);
+        const data = await response.json();
+        setUser(data);
+      } else {
+        // type === 'cancel'
+      }
+    } catch ({ message }) {
+      alert(`Facebook Login Error: ${message}`);
+    }
+  };
 
   //email
   const [email, setEmail] = useState(null)
@@ -122,8 +148,32 @@ export function Cadastro({navigation}) {
     <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
         <Text style={{color:"#fff"}}> Cadastrar </Text>
     </TouchableOpacity>
+
+    <View style={styless.container}>
+      {user ? (
+        <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Home')}>
+          <Text style={{color:"#fff"}}> Home </Text>
+        </TouchableOpacity>
+      ) : (
+        <Button title="Login com facebook" onPress={signUpFacebook} />
+      )}
+    </View>
+
+    
     
     </View>
   );
 }
+
+const styless = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f4f4f4",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  fotoContainer: {},
+  image: { width: 200, height: 200 },
+  text: { fontSize: 18, textAlign: "center" },
+});
 
