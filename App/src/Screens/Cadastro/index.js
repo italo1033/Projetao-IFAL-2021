@@ -1,11 +1,14 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
 import { TouchableOpacity, View } from 'react-native';
-import { Input, Text } from 'react-native-elements';
-import { RadioButton } from 'react-native-paper';
+import { Button,Input, Text } from 'react-native-elements';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 export function Cadastro({navigation}) {
+
+  //Calendario
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   //email
   const [email, setEmail] = useState(null)
@@ -29,7 +32,7 @@ export function Cadastro({navigation}) {
   const validar = () => {
     let error = false
 
-   
+
 
     // Validando Email
     setErrorEmail(null)
@@ -73,6 +76,19 @@ export function Cadastro({navigation}) {
     }
   }
 
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+};
+
+const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+};
+
+const handleConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+};
+
 
   return (
     <View style={styles.isBackgroundGeneral}>
@@ -85,6 +101,7 @@ export function Cadastro({navigation}) {
           onChangeText={value => setNome(value)}
           returnKeyType="done" 
           errorMessage={errorNome}
+          testID="Input"
       />
 
       {/* Italo */}
@@ -119,7 +136,20 @@ export function Cadastro({navigation}) {
             errorMessage={errorSenha}      
         />
 
-    <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
+
+        <Button title="Show Date Picker" onPress={showDatePicker} />
+        <DateTimePickerModal
+            isVisible={isDatePickerVisible}
+            mode="date"
+            onConfirm={handleConfirm}
+            onCancel={hideDatePicker}
+        />
+
+    <TouchableOpacity 
+    style={styles.button} 
+    onPress={() => salvarDados()}
+    data-testid="form-btn"
+    >
         <Text style={{color:"#fff"}}> Cadastrar </Text>
     </TouchableOpacity>
     
