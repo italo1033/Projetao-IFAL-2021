@@ -98,7 +98,7 @@ const handleConfirm = (date) => {
       <Input
           keyboardType="default" 
           placeholder="Maria dos Santos" 
-          onChangeText={value => setNome(value)}
+          onChangeText={setNome}
           returnKeyType="done" 
           errorMessage={errorNome}
           testID="Input"
