@@ -1,37 +1,14 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
-import { TouchableOpacity, View, Button, Image, StyleSheet } from 'react-native';
-import { Input, Text } from 'react-native-elements';
-import * as Facebook from "expo-facebook";
-
+import { TouchableOpacity, View } from 'react-native';
+import { Input, Text, Button } from 'react-native-elements';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 export function Cadastro({navigation}) {
 
-  const [user, setUser] = useState(null);
-
-  const signUpFacebook = async () => {
-    try {
-      await Facebook.initializeAsync("651857032664740");
-      const { type, token } = await Facebook.logInWithReadPermissionsAsync({
-        permissions: ["public_profile", "email"],
-      });
-      if (type === "success") {
-        // Get the user's name using Facebook's Graph API
-        const response = await fetch(
-          //`https://graph.facebook.com/me?access_token=${token}`
-          `https://graph.facebook.com/me?fields=id,name,picture.type(large),email&access_token=${token}`
-        );
-        // console.log((await response.json()).name);
-        const data = await response.json();
-        setUser(data);
-      } else {
-        // type === 'cancel'
-      }
-    } catch ({ message }) {
-      alert(`Facebook Login Error: ${message}`);
-    }
-  };
+  //Calendario
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   //email
   const [email, setEmail] = useState(null)
@@ -55,8 +32,7 @@ export function Cadastro({navigation}) {
   const validar = () => {
     let error = false
 
-   
-
+  
     // Validando Email
     setErrorEmail(null)
     const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -65,14 +41,47 @@ export function Cadastro({navigation}) {
       error = true
     }
 
-  // Validando CPF
+    // Validando CPF
+    function cpfCalculo(qtdNum, cpfNumber, increment) {
+      var valor = cpfNumber.substr(0, qtdNum), soma2 = 0
+      for(let i=0; i<valor.length; i++) {
+        soma2 += parseInt(valor[i]) * increment
+        increment--;
+      }
+      return soma2
+    } 
+
+    function somaDigitos(soma) {
+      var result = (soma * 10) % 11
+      return String(result)
+    }
+
     setErrorCpf(null)
     const regexCPF =/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
     if (!regexCPF.test(cpf)){
-      setErrorCpf("Preencha seu CPF corretamente")
-      error = true
-    }
+      if(cpf != null) {
+        var cpfNumber = cpf.replace(/\.|-/gm,'')
+        var cpfNumeros = cpfCalculo(9, cpfNumber, 10)
+        var cpfNumeros2 = cpfCalculo(10, cpfNumber, 11)
     
+        var result1  = somaDigitos(cpfNumeros)
+        var result2 = somaDigitos(cpfNumeros2)
+
+        var result3 = result1 + result2
+        const cpfF = cpfNumber.substr(9, 2)
+
+        if(result3 != cpfF || !regexCPF.test(cpf)) {
+          setErrorCpf("CPF Inválido")
+          error = true
+        } else {
+          setErrorCpf(null)
+        }
+
+      } else {
+        setErrorCpf("Preencha seu CPF")
+        error = true
+      }
+    }
 
     // validando Nome
     setErrorNome(null)
@@ -98,6 +107,19 @@ export function Cadastro({navigation}) {
       console.log("Salvou")
     }
   }
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+      setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+      console.warn("A date has been picked: ", date);
+      hideDatePicker();
+  };
 
 
   return (
@@ -137,43 +159,32 @@ export function Cadastro({navigation}) {
 
       <Text>Senha:</Text>
       <Input
+            secureTextEntry={true}
             placeholder="Digite sua senha"
             onChangeText = {value => {
               setSenha(value)
             }}
             returnKeyType="done"
             errorMessage={errorSenha}      
-        />
+      />
 
-    <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
+      <Button title="Show Date Picker" onPress={showDatePicker} />
+      <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+      />
+
+    <TouchableOpacity 
+      style={styles.button} 
+      onPress={() => salvarDados()}
+      data-testid="form-btn"
+    >
         <Text style={{color:"#fff"}}> Cadastrar </Text>
     </TouchableOpacity>
-
-    <View style={styless.container}>
-      {user ? (
-        <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Home')}>
-          <Text style={{color:"#fff"}}> Home </Text>
-        </TouchableOpacity>
-      ) : (
-        <Button title="Login com facebook" onPress={signUpFacebook} />
-      )}
-    </View>
-
-    
     
     </View>
   );
 }
-
-const styless = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f4f4f4",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  fotoContainer: {},
-  image: { width: 200, height: 200 },
-  text: { fontSize: 18, textAlign: "center" },
-});
 
