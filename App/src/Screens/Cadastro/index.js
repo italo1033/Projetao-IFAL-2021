@@ -187,4 +187,3 @@ export function Cadastro({navigation}) {
     </View>
   );
 }
-
