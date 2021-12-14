@@ -26,7 +26,7 @@ export function Cadastro({navigation}) {
   const [errorNome, setErrorNome] = useState(null)
 
   //Senha
-  const [senha, setSenha] = useState(null)
+  const [senha, setSenha] = useState('')
   const [errorSenha, setErrorSenha] = useState(null)
 
   const validar = () => {
@@ -102,9 +102,21 @@ export function Cadastro({navigation}) {
     return !error
   }
 
+  const bcrypt = require('bcryptjs')
+  const car = bcrypt.genSaltSync(10)
+  const novaSenha = bcrypt.hashSync(senha, car)
+
+  const dados = [
+    { 'Nome': nome },
+    {'CPF': cpf},
+    {'Data de Nascimento': ''},
+    {'Email': email},
+    {'Senha': novaSenha}
+  ]
+
   const salvarDados = () => {
     if(validar()) {
-      console.log("Salvou")
+      console.log(dados)
     }
   }
 
@@ -120,7 +132,6 @@ export function Cadastro({navigation}) {
       console.warn("A date has been picked: ", date);
       hideDatePicker();
   };
-
 
   return (
     <View style={styles.isBackgroundGeneral}>
@@ -187,3 +198,4 @@ export function Cadastro({navigation}) {
     </View>
   );
 }
+
