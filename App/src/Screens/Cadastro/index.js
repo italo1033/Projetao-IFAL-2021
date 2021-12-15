@@ -3,6 +3,7 @@ import { styles } from './style.js';
 import { TouchableOpacity, View } from 'react-native';
 import { Input, Text, Button } from 'react-native-elements';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import bcrypt from 'bcrypt-react-native';
 
 
 export function Cadastro({navigation}) {
@@ -102,7 +103,7 @@ export function Cadastro({navigation}) {
     return !error
   }
 
-  const bcrypt = require('bcryptjs')
+
   const car = bcrypt.genSaltSync(10)
   const novaSenha = bcrypt.hashSync(senha, car)
 
