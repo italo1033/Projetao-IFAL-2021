@@ -11,9 +11,9 @@ import {SplashScreenInitial} from './src/SplashScreen/TelaInicial/index';
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreenInitial">
+      <Stack.Navigator initialRouteName="Cadastro">
 
-        <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="Cadastro" component={SplashScreenInitial} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="SplashScreenInitial" component={SplashScreenInitial} />
