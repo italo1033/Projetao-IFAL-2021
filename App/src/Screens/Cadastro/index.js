@@ -1,11 +1,15 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
 import { TouchableOpacity, View } from 'react-native';
-import { Input, Text } from 'react-native-elements';
-import { RadioButton } from 'react-native-paper';
+import { Input, Text, Button } from 'react-native-elements';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import bcrypt from 'bcrypt-react-native';
 
 
 export function Cadastro({navigation}) {
+
+  //Calendario
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   //email
   const [email, setEmail] = useState(null)
@@ -23,14 +27,13 @@ export function Cadastro({navigation}) {
   const [errorNome, setErrorNome] = useState(null)
 
   //Senha
-  const [senha, setSenha] = useState(null)
+  const [senha, setSenha] = useState('')
   const [errorSenha, setErrorSenha] = useState(null)
 
   const validar = () => {
     let error = false
 
-   
-
+  
     // Validando Email
     setErrorEmail(null)
     const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -39,14 +42,47 @@ export function Cadastro({navigation}) {
       error = true
     }
 
-  // Validando CPF
+    // Validando CPF
+    function cpfCalculo(qtdNum, cpfNumber, increment) {
+      var valor = cpfNumber.substr(0, qtdNum), soma2 = 0
+      for(let i=0; i<valor.length; i++) {
+        soma2 += parseInt(valor[i]) * increment
+        increment--;
+      }
+      return soma2
+    } 
+
+    function somaDigitos(soma) {
+      var result = (soma * 10) % 11
+      return String(result)
+    }
+
     setErrorCpf(null)
     const regexCPF =/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
     if (!regexCPF.test(cpf)){
-      setErrorCpf("Preencha seu CPF corretamente")
-      error = true
-    }
+      if(cpf != null) {
+        var cpfNumber = cpf.replace(/\.|-/gm,'')
+        var cpfNumeros = cpfCalculo(9, cpfNumber, 10)
+        var cpfNumeros2 = cpfCalculo(10, cpfNumber, 11)
     
+        var result1  = somaDigitos(cpfNumeros)
+        var result2 = somaDigitos(cpfNumeros2)
+
+        var result3 = result1 + result2
+        const cpfF = cpfNumber.substr(9, 2)
+
+        if(result3 != cpfF || !regexCPF.test(cpf)) {
+          setErrorCpf("CPF Inválido")
+          error = true
+        } else {
+          setErrorCpf(null)
+        }
+
+      } else {
+        setErrorCpf("Preencha seu CPF")
+        error = true
+      }
+    }
 
     // validando Nome
     setErrorNome(null)
@@ -67,12 +103,36 @@ export function Cadastro({navigation}) {
     return !error
   }
 
+
+  const car = bcrypt.genSaltSync(10)
+  const novaSenha = bcrypt.hashSync(senha, car)
+
+  const dados = [
+    { 'Nome': nome },
+    {'CPF': cpf},
+    {'Data de Nascimento': ''},
+    {'Email': email},
+    {'Senha': novaSenha}
+  ]
+
   const salvarDados = () => {
     if(validar()) {
-      console.log("Salvou")
+      console.log(dados)
     }
   }
 
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+      setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+      console.warn("A date has been picked: ", date);
+      hideDatePicker();
+  };
 
   return (
     <View style={styles.isBackgroundGeneral}>
@@ -111,15 +171,28 @@ export function Cadastro({navigation}) {
 
       <Text>Senha:</Text>
       <Input
+            secureTextEntry={true}
             placeholder="Digite sua senha"
             onChangeText = {value => {
               setSenha(value)
             }}
             returnKeyType="done"
             errorMessage={errorSenha}      
-        />
+      />
 
-    <TouchableOpacity style={styles.button} onPress={() => salvarDados()}>
+      <Button title="Show Date Picker" onPress={showDatePicker} />
+      <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+      />
+
+    <TouchableOpacity 
+      style={styles.button} 
+      onPress={() => salvarDados()}
+      data-testid="form-btn"
+    >
         <Text style={{color:"#fff"}}> Cadastrar </Text>
     </TouchableOpacity>
     

@@ -291,14 +291,15 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
           This is so that the label can overlap the outline
           Otherwise the border will cut off the label on Android
           */}
+        <Outline
+          theme={theme}
+          hasActiveOutline={hasActiveOutline}
+          focused={parentState.focused}
+          activeColor={activeColor}
+          outlineColor={outlineColor}
+          backgroundColor={backgroundColor}
+        />
         <View>
-          <Outline
-            theme={theme}
-            hasActiveOutline={hasActiveOutline}
-            activeColor={activeColor}
-            outlineColor={outlineColor}
-            backgroundColor={backgroundColor}
-          />
           <View
             style={[
               styles.labelContainer,
@@ -314,6 +315,7 @@ class TextInputOutlined extends React.Component<ChildTextInputProps> {
               labelBackground={LabelBackground}
             />
             {render?.({
+              testID: 'text-input-outlined',
               ...rest,
               ref: innerRef,
               onChangeText,
@@ -365,6 +367,7 @@ export default TextInputOutlined;
 type OutlineProps = {
   activeColor: string;
   hasActiveOutline?: boolean;
+  focused?: boolean;
   outlineColor?: string;
   backgroundColor: ColorValue;
   theme: ReactNativePaper.Theme;
@@ -375,9 +378,11 @@ const Outline = ({
   hasActiveOutline,
   activeColor,
   outlineColor,
+  focused,
   backgroundColor,
 }: OutlineProps) => (
   <View
+    testID="text-input-outline"
     pointerEvents="none"
     style={[
       styles.outline,
@@ -385,7 +390,7 @@ const Outline = ({
       {
         backgroundColor,
         borderRadius: theme.roundness,
-        borderWidth: hasActiveOutline ? 2 : 1,
+        borderWidth: focused ? 2 : 1,
         borderColor: hasActiveOutline ? activeColor : outlineColor,
       },
     ]}
