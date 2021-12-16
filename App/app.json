@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "App_Geladeira",
-    "slug": "App_Geladeira",
+    "name": "app",
+    "slug": "snack-b54ef49b-dd3e-41b9-b389-a736d25ef364",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

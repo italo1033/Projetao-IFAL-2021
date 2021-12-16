@@ -1,9 +1,11 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
-import { TouchableOpacity, View } from 'react-native';
-import { Input, Text, Button } from 'react-native-elements';
+import { TouchableOpacity, TextInput,View,Text} from 'react-native';
+import {Button } from 'react-native-elements';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import Header from "../../Componentes/Header"
 
+import bcrypt from 'bcryptjs';
 
 export function Cadastro({navigation}) {
 
@@ -27,7 +29,7 @@ export function Cadastro({navigation}) {
 
   //Senha
   const [senha, setSenha] = useState('')
-  const [errorSenha, setErrorSenha] = useState(null)
+  const [errorSenha, setErrorSenha] = useState('')
 
   const validar = () => {
     let error = false
@@ -102,12 +104,12 @@ export function Cadastro({navigation}) {
     return !error
   }
 
-  const bcrypt = require('bcryptjs')
   const car = bcrypt.genSaltSync(10)
   const novaSenha = bcrypt.hashSync(senha, car)
 
+
   const dados = [
-    { 'Nome': nome },
+    {'Nome': nome },
     {'CPF': cpf},
     {'Data de Nascimento': ''},
     {'Email': email},
@@ -117,6 +119,7 @@ export function Cadastro({navigation}) {
   const salvarDados = () => {
     if(validar()) {
       console.log(dados)
+      navigation.navigate('Login', {emailC: email, senha: novaSenha})
     }
   }
 
@@ -136,30 +139,23 @@ export function Cadastro({navigation}) {
   return (
     <View style={styles.isBackgroundGeneral}>
 
-      {/* Italo */}
-      <Text>Nome:</Text>
-      <Input
+    <Header />
+    <View style={styles.subContainer}>
+
+
+      <TextInput
+
+          style={styles.textInput}
           keyboardType="default" 
-          placeholder="Maria dos Santos" 
+          placeholder="Digite seu Nome" 
           onChangeText={value => setNome(value)}
           returnKeyType="done" 
           errorMessage={errorNome}
       />
 
-      {/* Italo */}
-      <Text>CPF:</Text>
-      <Input 
-          keyboardType="number-pad" 
-          placeholder="142.832.344-24" 
-          onChangeText={value => setCpf(value)}
-          returnKeyType="done" 
-          errorMessage={errorCpf}
-      />
-
-      {/*Kenysson*/}
-      <Text>Email:</Text>
-      <Input
-            placeholder="receitas12@gmail.com"
+       <TextInput
+            style={styles.textInput}
+            placeholder="Digite seu Email"
             onChangeText={value => {
                 setEmail(value)
                 setErrorEmail(null)
@@ -168,10 +164,29 @@ export function Cadastro({navigation}) {
             errorMessage={errorEmail}        
         />
 
-      <Text>Senha:</Text>
-      <Input
+
+      <TextInput 
+          style={styles.textInput}
+          keyboardType="number-pad" 
+          placeholder="Digite seu CPF" 
+          onChangeText={value => setCpf(value)}
+          returnKeyType="done" 
+          errorMessage={errorCpf}
+      />
+        <TouchableOpacity style={{padding:5, margin:5, backgroundColor:"#C4C4C4", borderRadius:10, width:180}} onPress={showDatePicker}>
+        <Text style={{color:"gray", textAlign:"center"}}> Data de Nascimento </Text>
+    </TouchableOpacity>
+
+      <DateTimePickerModal
+          isVisible={isDatePickerVisible}
+          mode="date"
+          onConfirm={handleConfirm}
+          onCancel={hideDatePicker}
+      />
+      <TextInput
+            style={styles.textInput}
             secureTextEntry={true}
-            placeholder="Digite sua senha"
+            placeholder="Digite sua Senha"
             onChangeText = {value => {
               setSenha(value)
             }}
@@ -179,22 +194,23 @@ export function Cadastro({navigation}) {
             errorMessage={errorSenha}      
       />
 
-      <Button title="Show Date Picker" onPress={showDatePicker} />
-      <DateTimePickerModal
-          isVisible={isDatePickerVisible}
-          mode="date"
-          onConfirm={handleConfirm}
-          onCancel={hideDatePicker}
+      <TextInput
+            style={styles.textInput}
+            secureTextEntry={true}
+            placeholder="Confirme sua Senha"
+            onChangeText = {value => {
+              setSenha(value)
+            }}
+            returnKeyType="done"
+            errorMessage={errorSenha}      
       />
 
-    <TouchableOpacity 
-      style={styles.button} 
-      onPress={() => salvarDados()}
-      data-testid="form-btn"
-    >
-        <Text style={{color:"#fff"}}> Cadastrar </Text>
+     
+
+    <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
+        <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
     </TouchableOpacity>
-    
+    </View>
     </View>
   );
 }

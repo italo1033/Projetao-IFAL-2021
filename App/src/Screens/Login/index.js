@@ -1,16 +1,64 @@
 import React, { useState } from 'react';
 import { styles } from './style.js';
-import { View, Text, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TouchableOpacity, Button, TextInput, Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
 import Icon from 'react-native-vector-icons/Fontisto';
+import ImageBackground from '../../Componentes/Header';
+import bcrypt from 'bcryptjs';
 
 import * as Facebook from "expo-facebook";
-
 import * as Google from 'expo-google-app-auth';
 
-export function Login({navigation}) {
+export function Login({route, navigation}) {
   const [user, setUser] = useState(null);
 
-  const signInGoogle = async() => {
+  const [emailLogin, setEmailLogin] = useState('');
+  const [errorEmailLogin, setErrorEmailLogin] = useState(null);
+
+  const [senhaLogin, setSenhaLogin] = useState('');
+  const [errorSenhaLogin, setErrorSenhaLogin] = useState(null);
+
+  const [hideText, setHideText] = useState(true);
+
+  const validar = () => {
+    let error = false;
+
+    setErrorEmailLogin(null)
+    const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (!regexEmail.test(String(emailLogin).toLowerCase())){
+      setErrorEmailLogin("Preencha seu e-mail corretamente")
+      error = true
+    }
+
+    setErrorSenhaLogin(null)
+    const regexSenha= /^[a-z0-9_-]/
+    if(!regexSenha.test(senhaLogin)) {
+      setErrorSenhaLogin("Preencha sua senha corretamente")
+      error = true
+    }
+    
+    return !error
+  }
+
+  async function comparePasswordsEmail() {
+    var hashSenhaCadastro = route.params.senha
+    var emailCadastro = route.params.emailC
+    var com = await bcrypt.compare(senhaLogin, hashSenhaCadastro)
+    if(com == true && emailCadastro === emailLogin) {
+      navigation.navigate('Home')
+    } else {
+      console.error('Email/senha incorreto')
+    }
+  }
+
+  const isLogIn = () => {
+    if(validar()) {
+      comparePasswordsEmail()
+    }
+  }
+
+  const isSignInGoogle = async() => {
     try {
       const { type, user } = await Google.logInAsync({
         androidClientId: `153675377851-fh50uhfel6np8031hhj2of0g8bs7o71f.apps.googleusercontent.com`
@@ -24,7 +72,7 @@ export function Login({navigation}) {
     }
   };
 
-  const signUpFacebook = async () => {
+  const isSignUpFacebook = async () => {
     try {
       await Facebook.initializeAsync("651857032664740");
       const { type, token } = await Facebook.logInWithReadPermissionsAsync({
@@ -50,30 +98,69 @@ export function Login({navigation}) {
 
   return (
     <View style={styles.isBackgroundGeneral}>
+      <ImageBackground />
+      
+      <View style={styles.container}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Digite seu Email"
+          placeholderTextColor="black"
+          onChangeText={value => {
+            setEmailLogin(value)
+            setErrorEmailLogin(null)
+        }}
+                
+          errorMessage={errorEmailLogin}        
+        />
+        <View style={styles.iconSenha}>
+          <TextInput
+            style={styles.textInput}
+            secureTextEntry={hideText}
+            placeholder="Digite sua senha"
+            placeholderTextColor= 'black'
+            onChangeText = {value => {
+              setSenhaLogin(value)
+            }}
+            returnKeyType="done"
+            errorMessage={errorSenhaLogin}      
+          />
+
+          <TouchableOpacity style={styles.iconEye} onPress={() => setHideText(!hideText)}>
+            { hideText ? 
+              <Ionicons name="eye" color="#000" size={25}/>
+              :
+              <Ionicons name="eye-off" color="#000" size={25}/>
+            }
+          </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity style={styles.buttonLogin} onPress={() => isLogIn()}>
+              <Text style={{ color: '#800000' }}>Entrar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.textSenha} onPress={()=>navigation.navigate('EsqueceuSenha')}>
+          <Text style={{ textAlign: 'center' }}> Esqueceu sua senha? </Text>
+        </TouchableOpacity>
     
 
-    <TouchableOpacity style={styles.buttonGmail} onPress={signInGoogle}> 
-    <Text> <Icon name="google" size={25} /> Entrar com o Gmail</Text>
-    </TouchableOpacity>
+        {user ? (
+          <TouchableOpacity  style={styles.button} onPress={()=>navigation.navigate('Home')}>
+            <Text style={{color:"#fff"}}> Home </Text>
+          </TouchableOpacity>
+            ) : (
+          <TouchableOpacity style={styles.buttonFacebook} onPress={isSignUpFacebook}>
+          <Icon name="facebook" style={{ color: '#fff', marginLeft: 5 }} size={20}/><Text style={{ color: '#fff', marginLeft: 10 }}>Entrar com o facebook</Text>
+          </TouchableOpacity>
+        )}
 
-    <View style={styles.container}>
-      {user ? (
-        <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Home')}>
-          <Text style={{color:"#fff"}}> Home </Text>
-        </TouchableOpacity>
-      ) : (
-        <Button title="Login com facebook" onPress={signUpFacebook} />
-      )}
-    </View>
+        <TouchableOpacity style={styles.buttonGmail} onPress={isSignInGoogle}> 
+          <Image style={{ width: 20, height: 20 }} source={require('../../Img/Icon/google.ico')}/><Text style={{ marginLeft: 10 }}>Entrar com o Gmail</Text>
+        </TouchableOpacity>     
 
-    <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Cadastro')}>
-        <Text style={{color:"#fff"}}> Tela Cadastro </Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Home')}>
-        <Text style={{color:"#fff"}}> Tela Home </Text>
-    </TouchableOpacity>
-
+        <TouchableOpacity onPress={()=> navigation.navigate('Cadastro')}>
+          <Text style={{ textAlign: 'center' }}>Não tem uma conta? Faça seu cadastro.</Text>
+        </TouchableOpacity>      
+      </View>     
     </View>
   );
 }
