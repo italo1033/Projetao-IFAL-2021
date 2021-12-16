@@ -3,7 +3,7 @@ export const styles = StyleSheet.create({
 
   isBackgroundGeneral:{
     flex:1,
-    justifyContent:"center",
+
     alignItems:"center", //alinhando itens no centro
   },
   centro:{
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   button:{
     width:180,
     alignItems:"center",
-    borderRadius:10, //arredondando o butão
+    borderRadius:10, //arredondando o botão
     backgroundColor:'#FFFF00',
     padding:5,
     margin:5,
@@ -26,15 +26,25 @@ export const styles = StyleSheet.create({
     hint:"#000",
     justifyContent:"center" ,
     textAlign:"center",
-    borderRadius:10, //arredondando o butão
+    borderRadius:10, //arredondando o botão
     backgroundColor:'#C4C4C4',
     padding:5,
+    marginTop: 35,
+    fontWeight: "bold",
+    color: "black",
   },
 
   text:{
+    marginTop: 50,
     textAlign: "left",
     fontSize: 15,
-  }
+    marginLeft: 20,
+    marginRight: 20,
+    fontWeight: "bold",
+    opacity: 60,
+  },
+
+  
   
 
 

@@ -2,28 +2,64 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
-  isBackgroundGeneral:{
+  isBackgroundGeneral: {
     flex:1,
-    justifyContent:"center",
-    alignItems:"center"
-  },
-  button:{
-    marginTop:5,
-    width:125,
     alignItems:"center",
-    borderRadius:5, //arredondando o butão
-    backgroundColor:'green',
-    padding:5,
+  },
+  
+  textInput: {
+    backgroundColor: '#C4C4C4',
+    borderRadius: 10,
+    width: 180,
+    justifyContent: 'center',
+    textAlign: 'center',
+    padding: 5,
+    flexDirection: 'row',
+    margin: 5,
+    hint: '#000'
+  },
+
+  iconSenha: {
+    flexDirection: 'row',
+  },
+
+  iconEye: {
+    width: 50,
+    height: 25
+  },
+
+  buttonLogin: {
+    fontSize: 20,
+    backgroundColor: '#FFFF00',
+    borderRadius: 10,
+    width: 180,
+    alignItems:'center',
+    padding: 5,
+    margin: 5
   },
 
   buttonGmail: {
-    fontSize: 20,
-    backgroundColor: '#F8F8FF',
-    borderRadius: 12,
-    width:200,
-    height: 32,
+    flexDirection: 'row',
+    fontSize: 30,
+    backgroundColor: '#C4C4C4',
+    borderRadius: 10,
+    width:180,
     alignItems: 'center',
-    justifyContent:'center',
+    padding: 5,
+    margin: 5
+  },
+
+  buttonFacebook: {
+    flexDirection: 'row',
+    fontSize: 20,
+    alignItems: 'center',
+    padding: 5,
+    backgroundColor: '#3b5998',
+    borderRadius: 10,
+    width: 180,
+    margin: 5,
+    marginTop: 25
+
   },
 
   icon: {
@@ -33,8 +69,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f4f4f4",
-    alignItems: "center",
-    justifyContent: "center",
+    justifyContent: 'center',
+    width: 180
   },
   
   fotoContainer: {},

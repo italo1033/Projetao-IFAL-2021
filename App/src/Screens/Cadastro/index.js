@@ -3,8 +3,9 @@ import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
 import {Button } from 'react-native-elements';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import Header from "../../Componentes/Header"
 
-
+import bcrypt from 'bcryptjs';
 
 export function Cadastro({navigation}) {
 
@@ -28,7 +29,7 @@ export function Cadastro({navigation}) {
 
   //Senha
   const [senha, setSenha] = useState('')
-  const [errorSenha, setErrorSenha] = useState(null)
+  const [errorSenha, setErrorSenha] = useState('')
 
   const validar = () => {
     let error = false
@@ -103,21 +104,22 @@ export function Cadastro({navigation}) {
     return !error
   }
 
-  // var bcrypt = require('bcryptjs');
-  // const car = bcrypt.getSalt(10)
-  // const novaSenha = bcrypt.hash(senha, car)
 
+  const car = bcrypt.genSaltSync(10)
+  const novaSenha = bcrypt.hashSync(senha, car)
+  
   const dados = [
-    { 'Nome': nome },
+    {'Nome': nome },
     {'CPF': cpf},
     {'Data de Nascimento': ''},
     {'Email': email},
-    // {'Senha': novaSenha}
+    {'Senha': novaSenha}
   ]
 
   const salvarDados = () => {
     if(validar()) {
       console.log(dados)
+      navigation.navigate('Login', {senha: novaSenha})
     }
   }
 
@@ -136,6 +138,9 @@ export function Cadastro({navigation}) {
 
   return (
     <View style={styles.isBackgroundGeneral}>
+
+    <Header />
+    <View style={styles.subContainer}>
 
 
       <TextInput
@@ -205,6 +210,8 @@ export function Cadastro({navigation}) {
     <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
         <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
     </TouchableOpacity>
+
+    </View>
     
     </View>
   );

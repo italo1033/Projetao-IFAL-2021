@@ -3,6 +3,7 @@ import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
 import {Button } from 'react-native-elements';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import ImageBackground from '../../Componentes/Header';
 
 
 
@@ -65,6 +66,7 @@ export function EsqueceuSenha({navigation}) {
 
   return (
     <View style={styles.isBackgroundGeneral}>
+         <ImageBackground />
       <View>
         <Text style={styles.text}>Esqueci minha senha {"\n"}{"\n"}<Text>Insira seu e-mail e data de nascimento cadastrado e receberá um link para alterar sua senha</Text></Text>
         <Text />
@@ -74,6 +76,7 @@ export function EsqueceuSenha({navigation}) {
        <TextInput
             style={styles.textInput}
             placeholder="Digite seu Email"
+            placeholderTextColor="black"
             onChangeText={value => {
                 setEmail(value)
                 setErrorEmail(null)
@@ -85,7 +88,7 @@ export function EsqueceuSenha({navigation}) {
 
       
         <TouchableOpacity style={{padding:5, margin:5, backgroundColor:"#C4C4C4", borderRadius:10, width:180}} onPress={showDatePicker}>
-        <Text style={{color:"gray", textAlign:"center"}}> Data de Nascimento </Text>
+        <Text style={{color:"black", textAlign:"center", fontWeight:"bold"}}> Data de Nascimento </Text>
     </TouchableOpacity>
 
       <DateTimePickerModal
@@ -100,6 +103,7 @@ export function EsqueceuSenha({navigation}) {
     <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
         <Text style={{color:"#8B0000", fontWeight:"bold"}}> Enviar </Text>
     </TouchableOpacity>
+    
     
     </View>
   );

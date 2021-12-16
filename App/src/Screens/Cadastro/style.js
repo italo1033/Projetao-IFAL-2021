@@ -3,9 +3,11 @@ export const styles = StyleSheet.create({
 
   isBackgroundGeneral:{
     flex:1,
-    justifyContent:"center",
-    alignItems:"center", //alinhando itens no centro
-  },  
+  }, 
+  subContainer:{
+    marginTop:50,
+    alignItems:"center"
+  },
   button:{
     width:180,
     alignItems:"center",
@@ -21,7 +23,7 @@ export const styles = StyleSheet.create({
     hint:"#000",
     justifyContent:"center" ,
     textAlign:"center",
-    borderRadius:10, //arredondando o butão
+    borderRadius:10, //arredondando o botão
     backgroundColor:'#C4C4C4',
     padding:5,
   }

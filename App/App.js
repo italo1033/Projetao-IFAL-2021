@@ -13,11 +13,26 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SplashScreenInitial">
-        <Stack.Screen name="SplashScreenInitial" component={SplashScreenInitial} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Cadastro" component={Cadastro} />
-        <Stack.Screen name="EsqueceuSenha" component={EsqueceuSenha} />
+        <Stack.Screen
+            name="SplashScreenInitial" 
+            component={SplashScreenInitial} 
+            options={{ headerShown: false}}/>
+        <Stack.Screen 
+            name="Login" 
+            component={Login} 
+            options={{ headerShown: false }}/>
+        <Stack.Screen  
+            name="Home" 
+            component={Home} 
+            options={{ headerShown: false }}/>
+        <Stack.Screen 
+            name="Cadastro" 
+            component={Cadastro} 
+            options={{ headerShown: false }}/>
+        <Stack.Screen 
+            name="EsqueceuSenha" 
+            component={EsqueceuSenha} 
+            options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
