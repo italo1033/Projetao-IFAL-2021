@@ -66,6 +66,10 @@ export function Login({navigation}) {
       )}
     </View>
 
+    <TouchableOpacity onPress={()=>navigation.navigate('EsqueceuSenha')}>
+        <Text> Esqueceu sua senha? </Text>
+    </TouchableOpacity>
+
     <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Cadastro')}>
         <Text style={{color:"#fff"}}> Tela Cadastro </Text>
     </TouchableOpacity>
