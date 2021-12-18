@@ -28,7 +28,8 @@
     "@react-navigation/native-stack": "*",
     "react-native-safe-area-context": "3.3.2",
     "react-native-modal-datetime-picker": "*",
-    "@react-native-community/datetimepicker": "3.5.2"
+    "@react-native-community/datetimepicker": "3.5.2",
+    "react-native-bouncy-checkbox": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

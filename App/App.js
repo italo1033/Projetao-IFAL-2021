@@ -8,6 +8,7 @@ import {Login} from "./src/Screens/Login/index"
 import {Home} from "./src/Screens/Home/index"
 import {SplashScreenInitial} from './src/SplashScreen/TelaInicial/index';
 import {EsqueceuSenha} from './src/Screens/EsqueceuSenha/index';
+import {Dispensa} from './src/Screens/Dispensa/index';
 
 function App() {
   return (
@@ -32,6 +33,11 @@ function App() {
         <Stack.Screen 
             name="EsqueceuSenha" 
             component={EsqueceuSenha} 
+            options={{ headerShown: false }}/>
+
+        <Stack.Screen 
+            name="Dispensa" 
+            component={Dispensa} 
             options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
