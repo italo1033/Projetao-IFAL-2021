@@ -108,10 +108,10 @@ export function Login({route, navigation}) {
           onChangeText={value => {
             setEmailLogin(value)
             setErrorEmailLogin(null)
-        }}
-                
-          errorMessage={errorEmailLogin}        
-        />
+        }}        
+      />
+      <Text style={{color: '#FF0000', fontSize: 10}}>{errorEmailLogin}</Text>
+
         <View style={styles.iconSenha}>
           <TextInput
             style={styles.textInput}
@@ -120,10 +120,12 @@ export function Login({route, navigation}) {
             placeholderTextColor= 'black'
             onChangeText = {value => {
               setSenhaLogin(value)
+              setErrorSenhaLogin(null)
             }}
-            returnKeyType="done"
-            errorMessage={errorSenhaLogin}      
+            returnKeyType="done"    
           />
+          <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenhaLogin}</Text>
+
 
           <TouchableOpacity style={styles.iconEye} onPress={() => setHideText(!hideText)}>
             { hideText ? 

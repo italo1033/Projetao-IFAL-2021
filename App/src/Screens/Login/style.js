@@ -15,8 +15,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     flexDirection: 'row',
-    margin: 5,
-    hint: '#000'
+    margin: 5
   },
 
   iconSenha: {

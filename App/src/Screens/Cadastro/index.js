@@ -1,7 +1,6 @@
 import React, { useState }  from 'react';
 import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
-import {Button } from 'react-native-elements';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Header from "../../Componentes/Header"
 
@@ -33,7 +32,6 @@ export function Cadastro({navigation}) {
 
   const validar = () => {
     let error = false
-
   
     // Validando Email
     setErrorEmail(null)
@@ -60,30 +58,36 @@ export function Cadastro({navigation}) {
 
     setErrorCpf(null)
     const regexCPF =/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
-    if (!regexCPF.test(cpf)){
-      if(cpf != null) {
-        var cpfNumber = cpf.replace(/\.|-/gm,'')
-        var cpfNumeros = cpfCalculo(9, cpfNumber, 10)
-        var cpfNumeros2 = cpfCalculo(10, cpfNumber, 11)
-    
-        var result1  = somaDigitos(cpfNumeros)
-        var result2 = somaDigitos(cpfNumeros2)
-
-        var result3 = result1 + result2
-        const cpfF = cpfNumber.substr(9, 2)
-
-        if(result3 != cpfF || !regexCPF.test(cpf)) {
-          setErrorCpf("CPF Inválido")
-          error = true
+    if(!regexCPF.test(cpf)) {
+      setErrorCpf("CPF Inválido")
+      error = true
+    } else {
+      if(regexCPF.test(cpf)){
+        if(cpf != null) {
+          var cpfNumber = cpf.replace(/\.|-/gm,'')
+          var cpfNumeros = cpfCalculo(9, cpfNumber, 10)
+          var cpfNumeros2 = cpfCalculo(10, cpfNumber, 11)
+      
+          var result1  = somaDigitos(cpfNumeros)
+          var result2 = somaDigitos(cpfNumeros2)
+  
+          var result3 = result1 + result2
+          const cpfF = cpfNumber.substr(9, 2)
+  
+          if(result3 != cpfF) {
+            setErrorCpf("CPF Inválido")
+            error = true
+          } else {
+            setErrorCpf(null)
+          }
+  
         } else {
-          setErrorCpf(null)
+          setErrorCpf("Preencha seu CPF")
+          error = true
         }
-
-      } else {
-        setErrorCpf("Preencha seu CPF")
-        error = true
       }
     }
+    
 
     // validando Nome
     setErrorNome(null)
@@ -148,10 +152,13 @@ export function Cadastro({navigation}) {
           style={styles.textInput}
           keyboardType="default" 
           placeholder="Digite seu Nome" 
-          onChangeText={value => setNome(value)}
+          onChangeText={value => {
+            setNome(value)
+            setErrorNome(null)
+          }}
           returnKeyType="done" 
-          errorMessage={errorNome}
       />
+      <Text style={{color: '#FF0000', fontSize: 10}}>{errorNome}</Text>
 
        <TextInput
             style={styles.textInput}
@@ -159,23 +166,25 @@ export function Cadastro({navigation}) {
             onChangeText={value => {
                 setEmail(value)
                 setErrorEmail(null)
-            }}
-            
-            errorMessage={errorEmail}        
+            }}        
         />
-
-
+        <Text style={{color: '#FF0000', fontSize: 10}}>{errorEmail}</Text>
+      
       <TextInput 
           style={styles.textInput}
           keyboardType="number-pad" 
           placeholder="Digite seu CPF" 
-          onChangeText={value => setCpf(value)}
+          onChangeText={value => {
+            setCpf(value)
+            setErrorCpf(null)
+          }}
           returnKeyType="done" 
-          errorMessage={errorCpf}
       />
-        <TouchableOpacity style={{padding:5, margin:5, backgroundColor:"#C4C4C4", borderRadius:10, width:180}} onPress={showDatePicker}>
+      <Text style={{color: '#FF0000', fontSize: 10}}>{errorCpf}</Text>
+
+      <TouchableOpacity style={{padding:5, margin:5, backgroundColor:"#C4C4C4", borderRadius:10, width:180}} onPress={showDatePicker}>
         <Text style={{color:"gray", textAlign:"center"}}> Data de Nascimento </Text>
-    </TouchableOpacity>
+      </TouchableOpacity>
 
       <DateTimePickerModal
           isVisible={isDatePickerVisible}
@@ -189,10 +198,11 @@ export function Cadastro({navigation}) {
             placeholder="Digite sua Senha"
             onChangeText = {value => {
               setSenha(value)
+              setErrorSenha(null)
             }}
-            returnKeyType="done"
-            errorMessage={errorSenha}      
+            returnKeyType="done"     
       />
+      <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
 
       <TextInput
             style={styles.textInput}
@@ -200,18 +210,17 @@ export function Cadastro({navigation}) {
             placeholder="Confirme sua Senha"
             onChangeText = {value => {
               setSenha(value)
+              setErrorSenha(null)
             }}
-            returnKeyType="done"
-            errorMessage={errorSenha}      
+            returnKeyType="done"    
       />
+      <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
 
-     
-
-    <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
-        <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
-    </TouchableOpacity>
+      <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
+          <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
+      </TouchableOpacity>
     </View>
-    </View>
+  </View>
   );
 }
 

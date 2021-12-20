@@ -17,15 +17,14 @@ export const styles = StyleSheet.create({
     margin:5,
   },
 
-    textInput:{
+  textInput:{
     margin:5,
     width:180,
-    hint:"#000",
     justifyContent:"center" ,
     textAlign:"center",
     borderRadius:10, //arredondando o botão
     backgroundColor:'#C4C4C4',
-    padding:5,
+    padding:5
   }
   
 });
