@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 import {Cadastro} from "./src/Screens/Cadastro/index"
 import {Login} from "./src/Screens/Login/index"
-import {Home} from "./src/Screens/Home/index"
+import {Receitas} from "./src/Screens/Receitas/index"
 import {SplashScreenInitial} from './src/SplashScreen/TelaInicial/index';
 import {EsqueceuSenha} from './src/Screens/EsqueceuSenha/index';
 import {Dispensa} from './src/Screens/Dispensa/index';
@@ -16,7 +16,7 @@ import {Criar} from './src/Screens/Criar/index';
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Criar">
+      <Stack.Navigator initialRouteName="SplashScreenInitial">
         <Stack.Screen
             name="Perfil" 
             component={Perfil} 
@@ -34,8 +34,8 @@ function App() {
             component={Login} 
             options={{ headerShown: false }}/>
         <Stack.Screen  
-            name="Home" 
-            component={Home} 
+            name="Receitas" 
+            component={Receitas} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
             name="Cadastro" 

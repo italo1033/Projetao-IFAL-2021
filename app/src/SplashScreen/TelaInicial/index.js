@@ -7,7 +7,7 @@ Image } from "react-native";
 
 export function SplashScreenInitial({navigation}) {
     setTimeout(() => {
-    navigation.navigate('Home');
+    navigation.navigate('Receitas');
     },3000);
     return (
         <View style={{flex:1, justifyContent:'center', alignItems:"center", backgroundColor:
