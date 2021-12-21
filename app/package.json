@@ -19,7 +19,9 @@
     "expo-app-auth": "~11.0.3",
     "expo-facebook": "~12.0.3",
     "react-navigation": "4.1.1",
+    "@ant-design/icons": "*",
     "@expo/vector-icons": "^12.0.0",
+    "react-native-paper": "*",
     "react-native-drawer": "*",
     "expo-google-app-auth": "~9.0.0",
     "react-native-screens": "~3.8.0",
@@ -35,9 +37,7 @@
     "@react-navigation/native-stack": "*",
     "react-native-safe-area-context": "3.3.2",
     "react-native-modal-datetime-picker": "*",
-    "@react-native-community/datetimepicker": "3.5.2",
-    "@ant-design/icons": "*",
-    "react-native-paper": "*"
+    "@react-native-community/datetimepicker": "3.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

@@ -10,11 +10,21 @@ import {SplashScreenInitial} from './src/SplashScreen/TelaInicial/index';
 import {EsqueceuSenha} from './src/Screens/EsqueceuSenha/index';
 import {Dispensa} from './src/Screens/Dispensa/index';
 import {Ingredientes} from './src/Screens/Ingredientes';
+import {Perfil} from './src/Screens/Perfil/index';
+import {Criar} from './src/Screens/Criar/index';
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Ingredientes">
+      <Stack.Navigator initialRouteName="Criar">
+        <Stack.Screen
+            name="Perfil" 
+            component={Perfil} 
+            options={{ headerShown: false}}/>
+          <Stack.Screen
+            name="Criar" 
+            component={Criar} 
+            options={{ headerShown: false}}/>
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
