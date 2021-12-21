@@ -24,9 +24,19 @@ export function Perfil({route, navigation}) {
                               textAlign: "center"
                   }}> Perfil </Text>
         </View>
-      <View>
+      <View style={{
+        width: 150,
+        height: 150,
+        borderRadius: 150,
+        backgroundColor: '#D3D3D3',
+        padding: 1,
+        alignItems: 'center'}}
+      >
         
         <Ionicons style={{marginTop: 10}} name='person' size={100}/>
+      </View>
+      <View style={{width: 10, height: 30,}}>
+
       </View>
       <View style={styles.container}>
         <TextInput
@@ -52,7 +62,7 @@ export function Perfil({route, navigation}) {
 
         
 
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => isLogIn()}>
+        <TouchableOpacity style={styles.buttonLogin}>
               <Text style={{ 
                               fontSize: 15,
                               color:'#8B0000',

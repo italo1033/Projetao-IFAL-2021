@@ -2,6 +2,7 @@ import * as React from 'react';
 import { styles } from './style.js';
 import { View, Text , TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Header as HeaderRNE, HeaderProps, Icon } from 'react-native-elements';
+
 import Category from '../../Componentes/Category';
 
 export function Receitas({navigation}) {
@@ -32,14 +33,16 @@ export function Receitas({navigation}) {
     
     </View>
     <Text style={{ color: '#000', fontSize: 15, marginLeft: 17 }}>Panqueca de Frango</Text>
-    
-    <View style={{ flexDirection: 'row' }}>
-      <Category type="Doces"/>
-      <Category type="Bolos"/>
-      <Category type="Massas"/>
-      <Category type="Salgados"/>
-      <Category type="Bebidas"/>
-    </View>
+
+  <View style={{ flexDirection: 'row' }}>
+    <Category type="Doces" icon={require('../../Img/Icon/doces.png')}/>
+    <Category type="Bolos" icon={require('../../Img/Icon/bolo.png')}/>
+    <Category type="Massas" icon={require('../../Img/Icon/massas.png')}/>
+    <Category type="Salgados" icon={require('../../Img/Icon/salgados.png')}/>
+    <Category type="Bebidas" icon={require('../../Img/Icon/bebidas.png')}/>
+  </View>
+
+      
 
     <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Login')}>
         <Text style={{color:"#fff"}}> Tela Login </Text>

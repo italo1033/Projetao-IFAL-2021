@@ -12,8 +12,5 @@ export const styles = StyleSheet.create({
     borderRadius: 5, //arredondando o botão
     backgroundColor: 'green',
     padding: 5,
-  },
-
- 
-  
+  },  
 });
