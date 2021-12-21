@@ -9,11 +9,12 @@ import {Home} from "./src/Screens/Home/index"
 import {SplashScreenInitial} from './src/SplashScreen/TelaInicial/index';
 import {EsqueceuSenha} from './src/Screens/EsqueceuSenha/index';
 import {Dispensa} from './src/Screens/Dispensa/index';
+import {Ingredientes} from './src/Screens/Ingredientes';
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreenInitial">
+      <Stack.Navigator initialRouteName="Ingredientes">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
@@ -34,10 +35,13 @@ function App() {
             name="EsqueceuSenha" 
             component={EsqueceuSenha} 
             options={{ headerShown: false }}/>
-
         <Stack.Screen 
             name="Dispensa" 
             component={Dispensa} 
+            options={{ headerShown: false }}/>
+        <Stack.Screen 
+            name="Ingredientes" 
+            component={Ingredientes} 
             options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>

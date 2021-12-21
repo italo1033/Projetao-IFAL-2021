@@ -1,0 +1,110 @@
+{
+"Laticinios_e_ovos": [
+        {
+            "id":0,
+          "title": "Ovo"
+        },
+        {
+             "id":1,
+          "title": "Leite"
+        },
+        {
+          "id":2,
+          "title": "Manteiga"
+        },
+        { 
+          "id":3,
+          "title": "Nata"
+        },
+        { 
+          "id":4,
+          "title": "Crene de leite"
+        },
+        {
+          "id":5,
+          "title": "Leite Condensado"
+        }
+    ],
+
+    "Hortalica_e_Verduras": [
+        {
+            "id":0,
+          "title": "Alho"
+        },
+        {
+             "id":1,
+          "title": "Couve"
+        },
+        {
+          "id":2,
+          "title": "Fava"
+        },
+        { 
+          "id":3,
+          "title": "Chuchu"
+        },
+        { 
+          "id":4,
+          "title": "Alface"
+        },
+        {
+          "id":5,
+          "title": "Vagem"
+        }
+    ],
+      "Frutas": [
+        {
+            "id":0,
+          "title": "Morango"
+        },
+        {
+             "id":1,
+          "title": "açai"
+        },
+        {
+          "id":2,
+          "title": "Abacaxi"
+        },
+        { 
+          "id":3,
+          "title": "Banana"
+        },
+        { 
+          "id":4,
+          "title": "Manga"
+        },
+        {
+          "id":5,
+          "title": "maracuja"
+        }
+    ],
+
+    "farinha_Fermento_Laveduras": [
+        {
+            "id":0,
+          "title": "Farinha"
+        },
+        {
+             "id":1,
+          "title": "Maizena"
+        },
+        {
+          "id":2,
+          "title": "Fubá"
+        }
+    ],
+    "Massas": [
+        {
+            "id":0,
+          "title": "Macarrão"
+        },
+        {
+             "id":1,
+          "title": "Pão"
+        },
+        {
+          "id":2,
+          "title": "nhoque"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+"DATE": [
+        {
+            "id":0,
+          "title": "Ovo"
+        },
+        {
+             "id":1,
+          "title": "Carne"
+        },
+        {
+          "id":2,
+          "title": "Farinha de trigo"
+        },
+        { 
+          "id":3,
+          "title": "Pão"
+        },
+        { 
+          "id":4,
+          "title": "Coca"
+        },
+        {
+          "id":5,
+          "title": "AGUA"
+        }
+    ]
+}

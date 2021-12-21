@@ -3,8 +3,8 @@ export const styles = StyleSheet.create({
 
   isBackgroundGeneral:{
     flex:1,
-    alignItems:"center",
-    backgroundColor:"#FAEBD7"
+    alignItems:"stretch",
+    backgroundColor:"#000",
   },
 
 
@@ -12,10 +12,8 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    borderRadius:5
+    borderWidth:1,
+    fontSize:20,
   },
   title: {
     fontSize: 32,
@@ -28,6 +26,18 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5,
     flexDirection: 'row',
+    margin: 5,
+    hint: '#000'
+  },
+
+    buttonLogin: {
+    fontSize: 20,
+    backgroundColor: '#FFFF00',
+    borderRadius: 10,
+    width: 180,
+    alignItems:'center',
+    padding: 5,
     margin: 5
   },
+
 });

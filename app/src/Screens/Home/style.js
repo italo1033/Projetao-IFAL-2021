@@ -7,11 +7,13 @@ export const styles = StyleSheet.create({
     alignItems:"center"
   },  
   button:{
-    width:125,
+    width: 125,
     alignItems:"center",
-    borderRadius:5, //arredondando o butão
-    backgroundColor:'green',
-    padding:5,
-  }
+    borderRadius: 5, //arredondando o botão
+    backgroundColor: 'green',
+    padding: 5,
+  },
+
+ 
   
 });

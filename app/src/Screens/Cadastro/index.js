@@ -59,7 +59,7 @@ export function Cadastro({navigation}) {
     setErrorCpf(null)
     const regexCPF =/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
     if(!regexCPF.test(cpf)) {
-      setErrorCpf("CPF Inválido")
+      setErrorCpf("Preencha seu CPF corretamente")
       error = true
     } else {
       if(regexCPF.test(cpf)){

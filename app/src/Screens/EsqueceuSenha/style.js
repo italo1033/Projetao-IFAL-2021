@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
     textInput:{
     margin:5,
     width:180,
+    hint:"#000",
     justifyContent:"center" ,
     textAlign:"center",
     borderRadius:10, //arredondando o botão

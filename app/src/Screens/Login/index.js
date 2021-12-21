@@ -110,7 +110,7 @@ export function Login({route, navigation}) {
             setErrorEmailLogin(null)
         }}        
       />
-      <Text style={{color: '#FF0000', fontSize: 10}}>{errorEmailLogin}</Text>
+      <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}>{errorEmailLogin}</Text>
 
         <View style={styles.iconSenha}>
           <TextInput
@@ -124,9 +124,7 @@ export function Login({route, navigation}) {
             }}
             returnKeyType="done"    
           />
-          <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenhaLogin}</Text>
-
-
+        
           <TouchableOpacity style={styles.iconEye} onPress={() => setHideText(!hideText)}>
             { hideText ? 
               <Ionicons name="eye" color="#000" size={25}/>
@@ -135,6 +133,8 @@ export function Login({route, navigation}) {
             }
           </TouchableOpacity>
         </View>
+
+        <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}>{errorSenhaLogin}</Text>
 
         <TouchableOpacity style={styles.buttonLogin} onPress={() => isLogIn()}>
               <Text style={{ color: '#800000' }}>Entrar</Text>
