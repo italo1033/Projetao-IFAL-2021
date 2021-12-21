@@ -16,7 +16,7 @@ import {Criar} from './src/Screens/Criar/index';
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreenInitial">
+      <Stack.Navigator initialRouteName="Receitas">
         <Stack.Screen
             name="Perfil" 
             component={Perfil} 

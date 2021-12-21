@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styles } from './style.js';
 import { View, Text , TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Header as HeaderRNE, HeaderProps, Icon } from 'react-native-elements';
-
+import Category from '../../Componentes/Category';
 
 export function Receitas({navigation}) {
   
@@ -32,44 +32,14 @@ export function Receitas({navigation}) {
     
     </View>
     <Text style={{ color: '#000', fontSize: 15, marginLeft: 17 }}>Panqueca de Frango</Text>
-
-    <View style={styless.category}>
-        <View>
-          <TouchableOpacity>
-            <View style={styless.category2}></View>
-            <Text style={{ textAlign: 'center', marginLeft: 10 }}>Doces</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View>
-          <TouchableOpacity>
-            <View style={styless.category2}></View>
-            <Text style={{ textAlign: 'center', marginLeft: 10 }}>Bolos</Text>
-          </TouchableOpacity>
-        </View>
-      
-        <View>
-          <TouchableOpacity>
-            <View style={styless.category2}></View>
-            <Text style={{ textAlign: 'center', marginLeft: 10 }}>Massas</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View>
-          <TouchableOpacity>
-            <View style={styless.category2}></View>
-            <Text style={{ textAlign: 'center', marginLeft: 10 }}>Salgados</Text>
-          </TouchableOpacity>
-        </View>
-      
-        <View>
-          <TouchableOpacity>
-            <View style={styless.category2}></View>
-            <Text style={{ textAlign: 'center', marginLeft: 10 }}>Bebidas</Text>
-          </TouchableOpacity>
-        </View>
+    
+    <View style={{ flexDirection: 'row' }}>
+      <Category type="Doces"/>
+      <Category type="Bolos"/>
+      <Category type="Massas"/>
+      <Category type="Salgados"/>
+      <Category type="Bebidas"/>
     </View>
-      
 
     <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Login')}>
         <Text style={{color:"#fff"}}> Tela Login </Text>
@@ -103,20 +73,5 @@ const styless = StyleSheet.create({
     marginTop: 20,
     marginLeft: 10,
     backgroundColor: '#D3D3D3'
-  },
-
-  category: {
-    flexDirection: 'row',
-    padding: 10,
-    marginTop: 20
-  },
-
-  category2: {
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-    backgroundColor: '#D3D3D3',
-    padding: 10,
-    marginLeft: 10
   }
 });
