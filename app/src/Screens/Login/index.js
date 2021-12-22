@@ -42,9 +42,9 @@ export function Login({route, navigation}) {
     var emailCadastro = route.params.emailC
     var com = await bcrypt.compare(senhaLogin, hashSenhaCadastro)
     if(com == true && emailCadastro === emailLogin) {
-      navigation.navigate('Home')
+      navigation.navigate('Receitas')
     } else {
-      console.error('Email/senha incorreto')
+      alert('Email/senha incorreto')
     }
   }
 
@@ -95,7 +95,7 @@ export function Login({route, navigation}) {
 
         <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}>{errorSenhaLogin}</Text>
 
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate('Receitas')}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={() => isLogIn()}>
               <Text style={{ color: '#800000' }}>Entrar</Text>
         </TouchableOpacity>
 
