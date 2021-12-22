@@ -13,14 +13,14 @@ import {Ingredientes} from './src/Screens/Ingredientes';
 import {Perfil} from './src/Screens/Perfil/index';
 import {Criar} from './src/Screens/Criar/index';
 import {AlterarSenha} from './src/Screens/AlterarSenha/index';
-import {LoginNormal} from './src/Screens/LoginNormal/index';
+import {LoginFacebookGoogle} from './src/Screens/LoginFacebookGoogle/index';
 
 
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginNormal">
+      <Stack.Navigator initialRouteName="SplashScreenInitial">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
@@ -34,8 +34,8 @@ function App() {
             component={Login} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
-            name="LoginNormal" 
-            component={LoginNormal} 
+            name="LoginFacebookGoogle" 
+            component={LoginFacebookGoogle} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
             name="Cadastro" 

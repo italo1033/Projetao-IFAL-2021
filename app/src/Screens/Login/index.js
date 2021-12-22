@@ -95,7 +95,7 @@ export function Login({route, navigation}) {
 
         <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}>{errorSenhaLogin}</Text>
 
-        <TouchableOpacity style={styles.buttonLogin} onPress={() => isLogIn()}>
+        <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate('Receitas')}>
               <Text style={{ color: '#800000' }}>Entrar</Text>
         </TouchableOpacity>
 

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { styles } from './style.js';
-import { View, Text, TouchableOpacity, Button, TextInput, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Fontisto';
 import ImageBackground from '../../Componentes/Header';
-import bcrypt from 'bcryptjs';
 
 import * as Facebook from "expo-facebook";
 import * as Google from 'expo-google-app-auth';
 
-export function LoginNormal({route, navigation}) {
+export function LoginFacebookGoogle({route, navigation}) {
   const [user, setUser] = useState(null);
 
   const isSignInGoogle = async() => {
