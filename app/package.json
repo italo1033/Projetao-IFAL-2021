@@ -28,6 +28,7 @@
     "react-native-screens": "~3.8.0",
     "react-native-elements": "*",
     "react-senha-checklist": "*",
+    "react-native-passmeter": "*",
     "check-password-strength": "*",
     "react-native-reanimated": "~2.2.0",
     "react-navigation-drawer": "*",
@@ -43,8 +44,7 @@
     "react-native-modal-datetime-picker": "*",
     "react-native-password-strength-meter": "*",
     "@react-native-community/datetimepicker": "3.5.2",
-    "react-native-password-strength-checker": "*",
-    "react-native-passmeter": "*"
+    "react-native-password-strength-checker": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

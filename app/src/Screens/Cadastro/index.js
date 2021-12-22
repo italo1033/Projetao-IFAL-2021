@@ -3,7 +3,6 @@ import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Header from "../../Componentes/Header";
-import RNPasswordStrengthMeter from 'react-native-password-strength-meter';
 import PassMeter from "react-native-passmeter";
 
 
@@ -131,7 +130,6 @@ export function Cadastro({navigation}) {
   const salvarDados = () => {
     if(validar()) {
       console.log(dados)
-      alert(novaSenha)
       navigation.navigate('Login', {emailC: email, senha: novaSenha})
     }
   }
@@ -228,16 +226,7 @@ export function Cadastro({navigation}) {
       
       <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
 
-      {/*
-      <View style={styles.textInput}>
-        <RNPasswordStrengthMeter
-          placeholder="Confirme sua Senha"
-          onChangeText={this.onChange}
-          meterType="box"
-        />
-      </View>
-*/}
-      <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
+          <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
           <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
       </TouchableOpacity>
     </View>

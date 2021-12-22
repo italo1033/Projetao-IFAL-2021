@@ -25,7 +25,7 @@ export function Receitas({navigation}) {
           <Icon type="antdesign" name="heart" color="red" />
         </TouchableOpacity>
     </View>
-    
+
     <Text style={{ color: '#000', fontSize: 20, marginLeft: 15 }}>Receita do Dia</Text>
 
     <View style={styless.frameRecipeDay}>
@@ -78,7 +78,7 @@ export function Receitas({navigation}) {
           </View>
           <Text style={{ fontSize: 15, marginLeft: 60 }}>Esfiha</Text>
         </View>
-
+        
         <View>
           <View style={styless.frameRecipe}>
             <Image style={{ width: 150, height: 100, borderRadius: 20 }} source={require('../../Img/coquitel.jpeg')}/>
