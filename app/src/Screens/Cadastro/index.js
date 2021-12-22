@@ -3,8 +3,16 @@ import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Header from "../../Componentes/Header";
+import RNPasswordStrengthMeter from 'react-native-password-strength-meter';
+import PassMeter from "react-native-passmeter";
 
-import bcrypt from 'bcryptjs';
+
+
+const MAX_LEN = 15,
+  MIN_LEN = 6,
+  PASS_LABELS = ["Muito Fraca", "Fraca", "Razoável", "Forte", "Segura"];
+
+import bcrypt from 'react-native-bcrypt';
 
 export function Cadastro({navigation}) {
 
@@ -194,16 +202,18 @@ export function Cadastro({navigation}) {
           onCancel={hideDatePicker}
       />
       <TextInput
-            style={styles.textInput}
-            
-            placeholder="Digite sua Senha"
-           
-            onChangeText = {value => {
-              setSenha(value)
-              setErrorSenha(null)
-            
-            }}
-            returnKeyType="done"     
+        style={styles.textInput}
+        placeholder = "Digite sua senha"
+        maxLength={10}
+        secureTextEntry
+        onChangeText={senha => setSenha(senha)}
+      />
+      <PassMeter
+        showLabels
+        password={senha}
+        maxLength={MAX_LEN}
+        minLength={MIN_LEN}
+        labels={PASS_LABELS}
       />
       <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
 
@@ -212,15 +222,21 @@ export function Cadastro({navigation}) {
             
             placeholder="Confirme sua Senha"
             
-            onChangeText = {value => {
-              setSenha(value)
-              setErrorSenha(null)
-            }}
+            
             returnKeyType="done"    
       />
       
       <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
 
+      {/*
+      <View style={styles.textInput}>
+        <RNPasswordStrengthMeter
+          placeholder="Confirme sua Senha"
+          onChangeText={this.onChange}
+          meterType="box"
+        />
+      </View>
+*/}
       <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
           <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
       </TouchableOpacity>

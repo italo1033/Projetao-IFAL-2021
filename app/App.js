@@ -16,30 +16,29 @@ import {AlterarSenha} from './src/Screens/AlterarSenha/index';
 import {LoginFacebookGoogle} from './src/Screens/LoginFacebookGoogle/index';
 
 
-
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreenInitial">
+      <Stack.Navigator initialRouteName="Cadastro">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
             options={{ headerShown: false}}/>
+        <Stack.Screen 
+            name="Cadastro" 
+            component={Cadastro} 
+            options={{ headerShown: false }}/>
+         <Stack.Screen 
+            name="Login" 
+            component={Login} 
+            options={{ headerShown: false }}/>
         <Stack.Screen  
             name="Receitas" 
             component={Receitas} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
-            name="Login" 
-            component={Login} 
-            options={{ headerShown: false }}/>
-        <Stack.Screen 
             name="LoginFacebookGoogle" 
             component={LoginFacebookGoogle} 
-            options={{ headerShown: false }}/>
-        <Stack.Screen 
-            name="Cadastro" 
-            component={Cadastro} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
             name="EsqueceuSenha" 

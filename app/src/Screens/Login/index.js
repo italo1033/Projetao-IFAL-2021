@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Icon from 'react-native-vector-icons/Fontisto';
 import ImageBackground from '../../Componentes/Header';
-import bcrypt from 'bcryptjs';
+import bcrypt from 'react-native-bcrypt';
 
 export function Login({route, navigation}) {
 
@@ -37,10 +37,10 @@ export function Login({route, navigation}) {
     return !error
   }
 
-  async function comparePasswordsEmail() {
+  function comparePasswordsEmail() {
     var hashSenhaCadastro = route.params.senha
     var emailCadastro = route.params.emailC
-    var com = await bcrypt.compare(senhaLogin, hashSenhaCadastro)
+    var com = bcrypt.compareSync(senhaLogin, hashSenhaCadastro)
     if(com == true && emailCadastro === emailLogin) {
       navigation.navigate('Receitas')
     } else {

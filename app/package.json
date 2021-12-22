@@ -22,6 +22,7 @@
     "@ant-design/icons": "*",
     "@expo/vector-icons": "^12.0.0",
     "react-native-paper": "*",
+    "react-native-bcrypt": "*",
     "react-native-drawer": "*",
     "expo-google-app-auth": "~9.0.0",
     "react-native-screens": "~3.8.0",
@@ -42,7 +43,8 @@
     "react-native-modal-datetime-picker": "*",
     "react-native-password-strength-meter": "*",
     "@react-native-community/datetimepicker": "3.5.2",
-    "react-native-password-strength-checker": "*"
+    "react-native-password-strength-checker": "*",
+    "react-native-passmeter": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

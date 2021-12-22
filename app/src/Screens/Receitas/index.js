@@ -66,7 +66,6 @@ export function Receitas({navigation}) {
         <Text style={{ fontSize: 15, marginLeft: 4 }}>Nhoque de Batata Doce</Text>
       </View>
     </View>
-
       <View style={{ flexDirection: 'row' }}>
         <View>
           <View style={styless.frameRecipe}>
