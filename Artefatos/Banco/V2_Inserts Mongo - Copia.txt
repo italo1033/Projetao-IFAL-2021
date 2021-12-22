@@ -1,0 +1,47 @@
+db.categorias.insertMany([
+    { nome: "carnes" },
+    { nome: "aves" },
+    { nome: "saladas molhos e acopanhamentos" },
+    { nome: "lanches" },
+    { nome: "massas" },
+    { nome: "bebidas" },
+    { nome: "bolos e tortas" },
+    { nome: "frutos do mar" },
+    { nome: "sopas" },
+    { nome: "alimentos saudáveis" },
+    { nome: "doces e sobremesas" }
+])
+
+db.unidade_de_medida.insertMany([
+    { nome: "Grama", sigla: "G" },
+    { nome: "Miligrama", sigla: "MG" },
+    { nome: "Litro", sigla: "L" },
+    { nome: "Mililitro", sigla: "ML" },
+    { nome: "Xícara", sigla: "Xíc" },
+    { nome: "Copo", sigla: "Cp" },
+    { nome: "Colher de sopa", sigla: "Csp" },
+    { nome: "Colher de sobremesa", sigla: "Csb" },
+    { nome: "Colher de café", sigla: "Ccf" },
+    { nome: "Dash", sigla: "Dash" },
+    { nome: "Dose", sigla: "Dose" },
+    { nome: "Colher de chá", sigla: "Cc" },
+    { equivalente: "1 grama equilvale a 1g" },
+    { equivalente: "1 miligrama equilvale a 1mg" },
+    { equivalente: "1 litro equivale a 1l" },
+    { equivalente: "1 mililitro equivale a 1ml" },
+    { equivalente: "uma xicara equivale a 240 ML" },
+    { equivalente: "um copo equivale a 240 ML" },
+    { equivalente: "uma colher de sopa equivale a 15 ML" },
+    { equivalente: "uma colher de café equivale a 2,5 ML" },
+    { equivalente: "uma colher de sobremesa equivale a 10 ML" },
+    { equivalente: "um dash equivale a 1 ML" },
+    { equivalente: "uma colher de chá equivale a 5 ML" },
+    { equivalente: "uma dose eqeuivale a 50 ML" }
+])
+
+db.dificuldade.insertMany([
+    { nome: "Fácil" },
+    { nome: "Médio" },
+    { nome: "Difícil" }
+])
+
