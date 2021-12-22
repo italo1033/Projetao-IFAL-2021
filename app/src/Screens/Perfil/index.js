@@ -5,7 +5,7 @@ import { Icon } from 'react-native-elements';
 import ImageBackground from '../../Componentes/Header';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import {SignUp} from '../../Componentes/SignUp';
+
 
 
 export function Perfil({route, navigation}) {
@@ -83,7 +83,7 @@ export function Perfil({route, navigation}) {
        
             
       </View>  
-      <SignUp />   
+      
     </View>
   );
 }

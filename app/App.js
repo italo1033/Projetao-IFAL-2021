@@ -14,21 +14,23 @@ import {Perfil} from './src/Screens/Perfil/index';
 import {Criar} from './src/Screens/Criar/index';
 import {AlterarSenha} from './src/Screens/AlterarSenha/index';
 
+
+
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Cadastro">
+      <Stack.Navigator initialRouteName="Receitas">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
             options={{ headerShown: false}}/>
-        <Stack.Screen 
-            name="Login" 
-            component={Login} 
-            options={{ headerShown: false }}/>
         <Stack.Screen  
             name="Receitas" 
             component={Receitas} 
+            options={{ headerShown: false }}/>
+        <Stack.Screen 
+            name="Login" 
+            component={Login} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
             name="Cadastro" 

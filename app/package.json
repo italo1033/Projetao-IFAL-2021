@@ -26,6 +26,7 @@
     "expo-google-app-auth": "~9.0.0",
     "react-native-screens": "~3.8.0",
     "react-native-elements": "*",
+    "react-senha-checklist": "*",
     "react-native-reanimated": "~2.2.0",
     "react-navigation-drawer": "*",
     "@expo-google-fonts/salsa": "*",
@@ -37,8 +38,9 @@
     "@react-navigation/native-stack": "*",
     "react-native-safe-area-context": "3.3.2",
     "react-native-modal-datetime-picker": "*",
+    "react-native-password-strength-meter": "*",
     "@react-native-community/datetimepicker": "3.5.2",
-    "react-senha-checklist": "*"
+    "react-native-password-strength-checker": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

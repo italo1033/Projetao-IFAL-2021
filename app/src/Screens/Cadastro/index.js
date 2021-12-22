@@ -3,14 +3,17 @@ import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Header from "../../Componentes/Header";
-import PasswordChecklist from "react-senha-checklist"
 
-import bcrypt from 'bcryptjs';
+
+//import bcrypt from 'bcryptjs';
 
 export function Cadastro({navigation}) {
 
-  const [password, setPassword] = useState("")
-	const [passwordAgain, setPasswordAgain] = useState("")
+  onChange = (password, score, { label, labelColor, activeBarColor }) => {
+    console.log(password, score, { label, labelColor, activeBarColor });
+  }
+
+  
 
   //Calendario
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -112,17 +115,17 @@ export function Cadastro({navigation}) {
     return !error
   }
 
-  const car = bcrypt.genSaltSync(10)
-  const novaSenha = bcrypt.hashSync(senha, car)
+  //const car = bcrypt.genSaltSync(10)
+  //const novaSenha = bcrypt.hashSync(senha, car)
 
 
-  const dados = [
-    {'Nome': nome },
-    {'CPF': cpf},
-    {'Data de Nascimento': ''},
-    {'Email': email},
-    {'Senha': novaSenha}
-  ]
+  //const dados = [
+   // {'Nome': nome },
+   // {'CPF': cpf},
+   // {'Data de Nascimento': ''},
+   // {'Email': email},
+   // {'Senha': novaSenha}
+  //]
 
   const salvarDados = () => {
     if(validar()) {
@@ -200,7 +203,7 @@ export function Cadastro({navigation}) {
             style={styles.textInput}
             
             placeholder="Digite sua Senha"
-            onChange={e => setPassword(e.target.value)}
+           
             onChangeText = {value => {
               setSenha(value)
               setErrorSenha(null)
@@ -214,21 +217,17 @@ export function Cadastro({navigation}) {
             style={styles.textInput}
             
             placeholder="Confirme sua Senha"
-            onChange={e => setPasswordAgain(e.target.value)}
+            
             onChangeText = {value => {
               setSenha(value)
               setErrorSenha(null)
             }}
             returnKeyType="done"    
       />
-      <PasswordChecklist
-				rules={["length","specialChar","number","capital","match"]}
-				minLength={5}
-				value={password}
-				valueAgain={passwordAgain}
-				onChange={(isValid) => {}}
-			/>
+      
       <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
+
+      
 
       <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>
           <Text style={{color:"#8B0000", fontWeight:"bold"}}> Cadastrar </Text>
