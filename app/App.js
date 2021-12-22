@@ -13,13 +13,14 @@ import {Ingredientes} from './src/Screens/Ingredientes';
 import {Perfil} from './src/Screens/Perfil/index';
 import {Criar} from './src/Screens/Criar/index';
 import {AlterarSenha} from './src/Screens/AlterarSenha/index';
+import {LoginNormal} from './src/Screens/LoginNormal/index';
 
 
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Receitas">
+      <Stack.Navigator initialRouteName="LoginNormal">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
@@ -31,6 +32,10 @@ function App() {
         <Stack.Screen 
             name="Login" 
             component={Login} 
+            options={{ headerShown: false }}/>
+        <Stack.Screen 
+            name="LoginNormal" 
+            component={LoginNormal} 
             options={{ headerShown: false }}/>
         <Stack.Screen 
             name="Cadastro" 
