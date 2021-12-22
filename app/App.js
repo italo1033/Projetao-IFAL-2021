@@ -12,19 +12,12 @@ import {Dispensa} from './src/Screens/Dispensa/index';
 import {Ingredientes} from './src/Screens/Ingredientes';
 import {Perfil} from './src/Screens/Perfil/index';
 import {Criar} from './src/Screens/Criar/index';
+import {AlterarSenha} from './src/Screens/AlterarSenha/index';
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Receitas">
-        <Stack.Screen
-            name="Perfil" 
-            component={Perfil} 
-            options={{ headerShown: false}}/>
-          <Stack.Screen
-            name="Criar" 
-            component={Criar} 
-            options={{ headerShown: false}}/>
+      <Stack.Navigator initialRouteName="Cadastro">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
@@ -53,6 +46,18 @@ function App() {
             name="Ingredientes" 
             component={Ingredientes} 
             options={{ headerShown: false }}/>
+        <Stack.Screen
+            name="Perfil" 
+            component={Perfil} 
+            options={{ headerShown: false}}/>
+          <Stack.Screen
+            name="Criar" 
+            component={Criar} 
+            options={{ headerShown: false}}/>
+        <Stack.Screen
+            name="AlterarSenha" 
+            component={AlterarSenha} 
+            options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

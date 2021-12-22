@@ -3,6 +3,7 @@ import { styles } from './style.js';
 import { View, Text , TouchableOpacity, StyleSheet, Image, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Icon } from 'react-native-elements';
+import Category from '../../Componentes/Category';
 
 export function Criar({navigation}) {
   
@@ -35,17 +36,20 @@ export function Criar({navigation}) {
         
       </View>
       <View style={styless.linha} />
-      <View>
+
+      <View style={{ flexDirection: 'row' }}>
         <TextInput
             style={styles.textInput}
             placeholder="Ingredientes"
             placeholderTextColor= 'black'
             returnKeyType="done"
         >
-          
         </TextInput>
+        <TouchableOpacity>
+          <Ionicons style={{marginTop: 6}} name='add-circle-outline' size={30}/>
+        </TouchableOpacity>
       </View>
-      <View>
+      <View style={{marginTop: 30}}>
         <Text
             style={styles.textInput}
         >
@@ -59,6 +63,15 @@ export function Criar({navigation}) {
             
             returnKeyType="done"    
           />
+      </View>
+      <View style={{alignItems: 'center',}}>
+      <TouchableOpacity style={styles.buttonLogin}>
+              <Text style={{ 
+                              fontSize: 15,
+                              color:'#8B0000',
+                              fontWeight:"bold",
+                              }}>Salvar</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

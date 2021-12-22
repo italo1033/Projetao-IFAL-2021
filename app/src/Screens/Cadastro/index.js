@@ -2,11 +2,15 @@ import React, { useState }  from 'react';
 import { styles } from './style.js';
 import { TouchableOpacity, TextInput,View,Text} from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import Header from "../../Componentes/Header"
+import Header from "../../Componentes/Header";
+import PasswordChecklist from "react-senha-checklist"
 
 import bcrypt from 'bcryptjs';
 
 export function Cadastro({navigation}) {
+
+  const [password, setPassword] = useState("")
+	const [passwordAgain, setPasswordAgain] = useState("")
 
   //Calendario
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -194,11 +198,13 @@ export function Cadastro({navigation}) {
       />
       <TextInput
             style={styles.textInput}
-            secureTextEntry={true}
+            
             placeholder="Digite sua Senha"
+            onChange={e => setPassword(e.target.value)}
             onChangeText = {value => {
               setSenha(value)
               setErrorSenha(null)
+            
             }}
             returnKeyType="done"     
       />
@@ -206,14 +212,22 @@ export function Cadastro({navigation}) {
 
       <TextInput
             style={styles.textInput}
-            secureTextEntry={true}
+            
             placeholder="Confirme sua Senha"
+            onChange={e => setPasswordAgain(e.target.value)}
             onChangeText = {value => {
               setSenha(value)
               setErrorSenha(null)
             }}
             returnKeyType="done"    
       />
+      <PasswordChecklist
+				rules={["length","specialChar","number","capital","match"]}
+				minLength={5}
+				value={password}
+				valueAgain={passwordAgain}
+				onChange={(isValid) => {}}
+			/>
       <Text style={{color: '#FF0000', fontSize: 10}}>{errorSenha}</Text>
 
       <TouchableOpacity  style={styles.button} onPress={() => salvarDados()}>

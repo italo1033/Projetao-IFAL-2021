@@ -6,28 +6,20 @@ export const styles = StyleSheet.create({
     flex:1,
     alignItems:"center",
   },
-  textEtapa: {
+  
+  textInput: {
     marginTop: 10,
     backgroundColor: '#C4C4C4',
     borderRadius: 10,
+    borderWidth: 2,
     fontWeight: "bold",
-    width: '95%',
+    width: 180,
     justifyContent: 'center',
+    textAlign: 'center',
     padding: 5,
     flexDirection: 'row',
     margin: 5,
     hint: '#000'
-  },
-  textInput: {
-    marginLeft: 15,
-    width: '80%',
-    justifyContent: 'start',
-    textAlign: 'start',
-    padding: 5,
-    flexDirection: 'row',
-    margin: 5,
-    hint: '#000',
-    fontWeight: 'bold'
   },
 
   iconSenha: {
@@ -47,8 +39,6 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     width: 180,
     alignItems:'center',
-    justifyContent: 'center',
-    textAlign: 'center',
     padding: 5,
     margin: 5,
     marginTop: 30
@@ -102,10 +92,7 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: "row",
     marginTop: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
     
   },
-  
   
 });

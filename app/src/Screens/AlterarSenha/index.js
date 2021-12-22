@@ -5,10 +5,9 @@ import { Icon } from 'react-native-elements';
 import ImageBackground from '../../Componentes/Header';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import {SignUp} from '../../Componentes/SignUp';
 
 
-export function Perfil({route, navigation}) {
+export function AlterarSenha({route, navigation}) {
   
 
   return (
@@ -24,19 +23,9 @@ export function Perfil({route, navigation}) {
                               color:'#8B0000',
                               fontWeight:"bold",
                               textAlign: "center"
-                  }}> Perfil </Text>
+                  }}> Alterar Senha </Text>
         </View>
-      <View style={{
-        width: 150,
-        height: 150,
-        borderRadius: 150,
-        backgroundColor: '#D3D3D3',
-        padding: 1,
-        alignItems: 'center'}}
-      >
-        
-        <Ionicons style={{marginTop: 10}} name='person' size={100}/>
-      </View>
+      
       <View style={{width: 10, height: 30,}}>
 
       </View>
@@ -44,7 +33,7 @@ export function Perfil({route, navigation}) {
         <TextInput
           style={styles.textInput}
           
-          placeholder="Nome"
+          placeholder="Senha Atual"
           placeholderTextColor="black"
                  
       />
@@ -53,7 +42,7 @@ export function Perfil({route, navigation}) {
         <View style={styles.container}>
           <TextInput
             style={styles.textInput}
-            placeholder="Email"
+            placeholder="Nova senha"
             placeholderTextColor= 'black'
            
             returnKeyType="done"    
@@ -62,28 +51,26 @@ export function Perfil({route, navigation}) {
         <TextInput 
           style={styles.textInput}
           keyboardType="number-pad" 
-          placeholder="Digite seu CPF" 
+          placeholder="Confirme sua senha" 
           placeholderTextColor = 'black'
           returnKeyType="done" 
+          
       />
       
   
         </View>
 
         
-        <TouchableOpacity style={styles.buttonLogin} onPress={()=> navigation.navigate('AlterarSenha')}>
+        <TouchableOpacity style={styles.buttonLogin}>
               <Text style={{ 
                               fontSize: 15,
                               color:'#8B0000',
                               fontWeight:"bold",
-                              }}>Alterar senha</Text>
+                              }}>Salvar</Text>
         </TouchableOpacity>
 
-
-       
             
-      </View>  
-      <SignUp />   
+      </View>     
     </View>
   );
 }
