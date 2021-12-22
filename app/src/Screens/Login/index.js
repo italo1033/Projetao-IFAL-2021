@@ -5,13 +5,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Icon from 'react-native-vector-icons/Fontisto';
 import ImageBackground from '../../Componentes/Header';
-import bcrypt from 'bcryptjs';
-
-import * as Facebook from "expo-facebook";
-import * as Google from 'expo-google-app-auth';
+import bcrypt from 'react-native-bcrypt';
 
 export function Login({route, navigation}) {
-  const [user, setUser] = useState(null);
 
   const [emailLogin, setEmailLogin] = useState('');
   const [errorEmailLogin, setErrorEmailLogin] = useState(null);
@@ -41,14 +37,14 @@ export function Login({route, navigation}) {
     return !error
   }
 
-  async function comparePasswordsEmail() {
+  function comparePasswordsEmail() {
     var hashSenhaCadastro = route.params.senha
     var emailCadastro = route.params.emailC
-    var com = await bcrypt.compare(senhaLogin, hashSenhaCadastro)
+    var com = bcrypt.compareSync(senhaLogin, hashSenhaCadastro)
     if(com == true && emailCadastro === emailLogin) {
-      navigation.navigate('Home')
+      navigation.navigate('Receitas')
     } else {
-      console.error('Email/senha incorreto')
+      alert('Email/senha incorreto')
     }
   }
 
@@ -57,43 +53,6 @@ export function Login({route, navigation}) {
       comparePasswordsEmail()
     }
   }
-
-  const isSignInGoogle = async() => {
-    try {
-      const { type, user } = await Google.logInAsync({
-        androidClientId: `153675377851-fh50uhfel6np8031hhj2of0g8bs7o71f.apps.googleusercontent.com`
-      });
-
-      if(type === 'success') {
-        navigation.navigate("Home", { user });
-      }
-    } catch(error) {
-      console.error('Verifique o erro e tente novamente', error);
-    }
-  };
-
-  const isSignUpFacebook = async () => {
-    try {
-      await Facebook.initializeAsync("651857032664740");
-      const { type, token } = await Facebook.logInWithReadPermissionsAsync({
-        permissions: ["public_profile", "email"],
-      });
-      if (type === "success") {
-        // Get the user's name using Facebook's Graph API
-        const response = await fetch(
-          //`https://graph.facebook.com/me?access_token=${token}`
-          `https://graph.facebook.com/me?fields=id,name,picture.type(large),email&access_token=${token}`
-        );
-        // console.log((await response.json()).name);
-        const data = await response.json();
-        setUser(data);
-      } else {
-        // type === 'cancel'
-      }
-    } catch ({ message }) {
-      alert(`Facebook Login Error: ${message}`);
-    }
-  };
 
 
   return (
@@ -143,24 +102,9 @@ export function Login({route, navigation}) {
         <TouchableOpacity style={styles.textSenha} onPress={()=>navigation.navigate('EsqueceuSenha')}>
           <Text style={{ textAlign: 'center' }}> Esqueceu sua senha? </Text>
         </TouchableOpacity>
-    
-
-        {user ? (
-          <TouchableOpacity  style={styles.button} onPress={()=>navigation.navigate('Home')}>
-            <Text style={{color:"#fff"}}> Home </Text>
-          </TouchableOpacity>
-            ) : (
-          <TouchableOpacity style={styles.buttonFacebook} onPress={isSignUpFacebook}>
-          <Icon name="facebook" style={{ color: '#fff', marginLeft: 5 }} size={20}/><Text style={{ color: '#fff', marginLeft: 10 }}>Entrar com o facebook</Text>
-          </TouchableOpacity>
-        )}
-
-        <TouchableOpacity style={styles.buttonGmail} onPress={isSignInGoogle}> 
-          <Image style={{ width: 20, height: 20 }} source={require('../../Img/Icon/google.ico')}/><Text style={{ marginLeft: 10 }}>Entrar com o Gmail</Text>
-        </TouchableOpacity>     
-
+  
         <TouchableOpacity onPress={()=> navigation.navigate('Cadastro')}>
-          <Text style={{ textAlign: 'center' }}>Não tem uma conta? Faça seu cadastro.</Text>
+          <Text style={{ textAlign: 'center', marginTop: 40 }}>Não tem uma conta? Faça seu cadastro.</Text>
         </TouchableOpacity>      
       </View>     
     </View>
