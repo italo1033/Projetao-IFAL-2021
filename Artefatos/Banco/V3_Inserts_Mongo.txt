@@ -1,0 +1,70 @@
+db.categorias.insertMany([
+    { nome: "carnes" },
+    { nome: "aves" },
+    { nome: "saladas molhos e acopanhamentos" },
+    { nome: "lanches" },
+    { nome: "massas" },
+    { nome: "bebidas" },
+    { nome: "bolos e tortas" },
+    { nome: "frutos do mar" },
+    { nome: "sopas" },
+    { nome: "alimentos saudáveis" },
+    { nome: "doces e sobremesas" }
+])
+
+db.unidade_de_medida.insertMany([
+    { nome: "Grama", sigla: "G" },
+    { nome: "Miligrama", sigla: "MG" },
+    { nome: "Litro", sigla: "L" },
+    { nome: "Mililitro", sigla: "ML" },
+    { nome: "Xícara", sigla: "Xíc" },
+    { nome: "Copo", sigla: "Cp" },
+    { nome: "Colher de sopa", sigla: "Csp" },
+    { nome: "Colher de sobremesa", sigla: "Csb" },
+    { nome: "Colher de café", sigla: "Ccf" },
+    { nome: "Dash", sigla: "Dash" },
+    { nome: "Dose", sigla: "Dose" },
+    { nome: "Colher de chá", sigla: "Cc" }
+])
+
+db.dificuldade.insertMany([
+    { nome: "Fácil" },
+    { nome: "Médio" },
+    { nome: "Difícil" }
+])
+
+db.usuario.insertMany([
+    { nome: null, CPF: null, data_denascimento: null }
+])
+
+db.contato.insertMany([
+    { numero_de_telefone: null, email: null, ID-usuario }???
+])
+
+db.lista_de_itens.insertMany([
+    { ID-usuario, ID-itens }???
+])
+
+db.ingredientes.insertMany([
+    { quantidade_de_ingredientes: N , ID-itens, ID-unidade_de_medida, ID-subcategoria }???
+)]
+
+db.subcategorias.insertMany([
+    { nome: "" } ...
+)]
+
+db.imagens.insertMany([
+    { nome: "", ID-receitas }???
+)]
+
+db.preparo.insertMany([
+    { etapas: "", ID-receitas, ID-subcategorias }???
+)]
+
+db.receitas.insertMany([
+    { nome: "", avaliacoes: "", porcoes: N, nacionalidade: "", ID-categorias, ID-dificuldade, ID-ingredientes }???
+)]
+
+db.itens.insertMany([
+    { nome: "", tipo: "" } ...
+)]
