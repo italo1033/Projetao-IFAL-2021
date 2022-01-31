@@ -41,47 +41,46 @@ export function Perfil({route, navigation}) {
 
       </View>
       <View style={styles.container}>
-        <TextInput
-          style={styles.textInput}
-          
-          placeholder="Nome"
-          placeholderTextColor="black"
-                 
-      />
-      <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}></Text>
 
-        <View style={styles.container}>
+        <View style={styles.icon}>
+          <TouchableOpacity  style={styles.buttonInput}><Image source={require('../../Img/Icon/lapis.png')}/></TouchableOpacity>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Nome"
+            placeholderTextColor="black"       
+        />
+        </View>
+      
+        <View style={styles.icon}>
+          <TouchableOpacity  style={styles.buttonInput}><Image source={require('../../Img/Icon/lapis.png')}/></TouchableOpacity>
           <TextInput
             style={styles.textInput}
             placeholder="Email"
             placeholderTextColor= 'black'
-           
+            
             returnKeyType="done"    
           />
-        
-        <TextInput 
-          style={styles.textInput}
-          keyboardType="number-pad" 
-          placeholder="Digite seu CPF" 
-          placeholderTextColor = 'black'
-          returnKeyType="done" 
-      />
-      
-  
-        </View>
 
+        </View>
         
+        <View style={styles.icon}>
+          <TouchableOpacity  style={styles.buttonInput}><Image source={require('../../Img/Icon/lapis.png')}/></TouchableOpacity>
+          <TextInput 
+            style={styles.textInput}
+            keyboardType="number-pad" 
+            placeholder="CPF" 
+            placeholderTextColor = 'black'
+            returnKeyType="done" 
+        />
+        </View>
+              
         <TouchableOpacity style={styles.buttonLogin} onPress={()=> navigation.navigate('AlterarSenha')}>
               <Text style={{ 
                               fontSize: 15,
                               color:'#8B0000',
-                              fontWeight:"bold",
+                              fontWeight:"bold"
                               }}>Alterar senha</Text>
         </TouchableOpacity>
-
-
-       
-            
       </View>  
       
     </View>
