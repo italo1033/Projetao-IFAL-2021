@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   isBackgroundGeneral:{
     flex:1,
     alignItems:"stretch",
-    backgroundColor:"#000",
+    backgroundColor:"#fff",
   },
 
 

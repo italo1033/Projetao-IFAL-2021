@@ -158,7 +158,8 @@ export function Cadastro({navigation}) {
 
           style={styles.textInput}
           keyboardType="default" 
-          placeholder="Digite seu Nome" 
+          placeholder="Nome de usuário" 
+          placeholderTextColor="#000" 
           onChangeText={value => {
             setNome(value)
             setErrorNome(null)
@@ -170,6 +171,7 @@ export function Cadastro({navigation}) {
        <TextInput
             style={styles.textInput}
             placeholder="Digite seu Email"
+            placeholderTextColor="#000" 
             onChangeText={value => {
                 setEmail(value)
                 setErrorEmail(null)
@@ -181,6 +183,7 @@ export function Cadastro({navigation}) {
           style={styles.textInput}
           keyboardType="number-pad" 
           placeholder="Digite seu CPF" 
+          placeholderTextColor="#000" 
           onChangeText={value => {
             setCpf(value)
             setErrorCpf(null)
@@ -190,7 +193,7 @@ export function Cadastro({navigation}) {
       <Text style={{color: '#FF0000', fontSize: 10}}>{errorCpf}</Text>
 
       <TouchableOpacity style={{padding:5, margin:5, backgroundColor:"#C4C4C4", borderRadius:10, width:180}} onPress={showDatePicker}>
-        <Text style={{color:"gray", textAlign:"center"}}> Data de Nascimento </Text>
+        <Text style={{color:"black", textAlign:"center", fontFamily: 'Roboto', fontSize: 16,  }}> Data de Nascimento </Text>
       </TouchableOpacity>
 
       <DateTimePickerModal
@@ -202,6 +205,7 @@ export function Cadastro({navigation}) {
       <TextInput
         style={styles.textInput}
         placeholder = "Digite sua senha"
+        placeholderTextColor="#000" 
         maxLength={10}
         secureTextEntry
         onChangeText={senha => setSenha(senha)}
@@ -219,6 +223,7 @@ export function Cadastro({navigation}) {
             style={styles.textInput}
             
             placeholder="Confirme sua Senha"
+            placeholderTextColor="#000" 
             
             
             returnKeyType="done"    

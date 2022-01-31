@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { styles } from './style.js';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, Button, TextInput, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import Icon from 'react-native-vector-icons/Fontisto';
 import ImageBackground from '../../Componentes/Header';
 import bcrypt from 'react-native-bcrypt';
 

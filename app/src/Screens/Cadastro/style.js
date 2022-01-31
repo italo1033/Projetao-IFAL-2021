@@ -26,6 +26,9 @@ export const styles = StyleSheet.create({
     borderRadius:10, //arredondando o botão
     backgroundColor:'#C4C4C4',
     padding:5,
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    
   }
   
 });

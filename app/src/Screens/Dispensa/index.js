@@ -27,6 +27,30 @@ const [selectedId, setSelectedId] = useState(null);
               );
             })}
           </Card>
+
+           <Card >
+            {itemJson.DATE.map((index) => {
+              return (
+                <View   style={{flexDirection:"row", justifyContent:'space-between'}}>
+                  <Text>{index.title}</Text>
+                  <TouchableOpacity onPress={()=> alert(index.id) }><Ionicons name='trash' color="red" size={25}/></TouchableOpacity>
+                </View>
+              );
+            })}
+          </Card>
+
+          <Card >
+            {itemJson.DATE.map((index) => {
+              return (
+                <View   style={{flexDirection:"row", justifyContent:'space-between'}}>
+                  <Text>{index.title}</Text>
+                  <TouchableOpacity onPress={()=> alert(index.id) }><Ionicons name='trash' color="red" size={25}/></TouchableOpacity>
+                </View>
+              );
+            })}
+          </Card>
+          
+
       <View style={{alignItems:"center"}}>
       <TouchableOpacity style={styles.buttonLogin}>
       <Text>Ver Receitas</Text>

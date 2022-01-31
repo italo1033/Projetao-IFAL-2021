@@ -3,9 +3,11 @@ export const styles = StyleSheet.create({
 
   isBackgroundGeneral:{
     flex:1,
+    justifyContent:"center",
+    alignItems:"center"
   },  
    headerContainer: {
-    justifyContent: 'center',
+    justifyContent: 'start',
     alignItems: 'start',
     backgroundColor: '#ffff00',
     marginBottom: 20,

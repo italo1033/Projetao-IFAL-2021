@@ -9,17 +9,19 @@ export const styles = StyleSheet.create({
   
   textInput: {
     marginTop: 10,
-    backgroundColor: '#C4C4C4',
+    backgroundColor: '#F1ECEC',
     borderRadius: 10,
     borderWidth: 2,
-    fontWeight: "bold",
     width: 180,
     justifyContent: 'center',
     textAlign: 'center',
     padding: 5,
     flexDirection: 'row',
     margin: 5,
-    hint: '#000'
+    hint: '#000',
+    fontFamily: 'Roboto',
+    fontSize: 16
+    
   },
 
   iconSenha: {

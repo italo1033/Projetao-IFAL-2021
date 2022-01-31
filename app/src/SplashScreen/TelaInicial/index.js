@@ -3,8 +3,8 @@ import { View, Image } from 'react-native';
 
 export function SplashScreenInitial({ navigation }) {
   setTimeout(() => {
-    navigation.navigate('Cadastro');
-  }, 3000);
+    navigation.navigate('Receitas');
+  }, 10000);
   return (
     <View
       style={{
