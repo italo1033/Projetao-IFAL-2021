@@ -27,17 +27,39 @@ export function Receita({navigation}) {
     <View style={{alignItems:"center"}}>
       <Image style={{ width: 300, height: 180, borderRadius: 20}} source={require('../../Img/mousse.jpeg')}/>
     </View>
-    <Text style={{ color: '#000', fontSize: 15, marginLeft: 17, fontWeight:"bold"  }}>Mousse de Maracujá</Text>
-    <View style={{flexDirection:"row", alignItems:"flex-end", borderBottomWidth:1}}>
-    <TouchableOpacity style={{marginLeft:10}}>
-              <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/coracao.png')}/>
-    </TouchableOpacity>
-    <Text style={{ color: '#000', fontSize: 14 }}>123</Text>
+
+    <Text style={{ color: '#000', fontSize: 15, marginLeft: 17, fontWeight:"bold", marginTop: 5  }}>Mousse de Maracujá</Text>
+
+    <View style={{flexDirection:"row", alignItems:"flex-end", borderBottomWidth: 1}}>
+      <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
+                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
+                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
+                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
+                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
+                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
+      </TouchableOpacity>
     </View>
 
-    <View >
+    <View>
     <Text style={{ color: '#000', fontSize: 18,marginLeft:17,marginTop:10, fontWeight:"bold" }}>Ingredientes</Text>
-    <Text style={{ color: '#000', fontSize: 14,marginLeft:17,marginBottom:5,marginTop:5, }}>6 Porções</Text>
+
+    <View style={{ flexDirection: 'row' }}>
+     <Text style={{ color: '#000', fontSize: 14,marginLeft:17,marginBottom:5,marginTop:5, }}>6 Porções</Text>
+
+     <View style={styles.buttonMoreLess}>
+     <TouchableOpacity>
+        <Image style={{ marginLeft: 38, marginTop: 1, borderLefttWidth: 1 }} source={require('../../Img/Icon/mais.png')}/>
+      </TouchableOpacity>
+
+      <View style={{borderWidth: 1, marginLeft: -23}}></View>
+
+      <TouchableOpacity>
+        <Image style={{ marginLeft: -25, marginTop: 1, borderLefttWidth: 1 }} source={require('../../Img/Icon/menos.png')}/>
+      </TouchableOpacity>
+
+     </View>
+
+    </View>
     </View>
 
     <View style={{borderBottomWidth:1}}>

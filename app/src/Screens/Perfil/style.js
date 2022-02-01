@@ -25,10 +25,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 5,
     hint: '#000',
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderTopWidth: 1,
+    borderWidth: 1
   },
 
   buttonInput: {

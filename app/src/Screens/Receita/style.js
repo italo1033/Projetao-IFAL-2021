@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   isBackgroundGeneral:{
     flex:1,
   },  
+  
    headerContainer: {
     justifyContent: 'center',
     alignItems: 'start',
@@ -15,31 +16,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 
-  frameRecipeDay: {
-    width: 313,
-    height: 150,
-    borderRadius: 20,
-    marginTop: 20,
-    marginLeft: 10,
-    backgroundColor: '#D3D3D3'
-  },
-
-  frameRecipe: {
-    width: 150,
-    height: 100,
-    borderRadius: 20,
-    marginTop: 20,
-    marginLeft: 5,
-    backgroundColor: '#D3D3D3'
-  },
-
-  favorite: {
-    width: 30, 
-    height: 30,
-    position: 'absolute',
-    marginLeft: 110,
-    marginTop: 10, 
-    backgroundColor: '#FFFAFA', 
-    borderRadius: 30
+  buttonMoreLess: {
+    borderWidth: 1,
+    flexDirection: 'row',
+    marginLeft: 145,
+    width: 65,
+    height: 22,
+    borderRadius: 10
+    
   }
 });
