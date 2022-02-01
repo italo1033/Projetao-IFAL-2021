@@ -2,6 +2,7 @@ import * as React from 'react';
 import { styles } from './style.js';
 import { View, Text , TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Header as HeaderRNE, HeaderProps, Icon } from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
 
 import Category from '../../Componentes/Category';
 
@@ -25,19 +26,35 @@ export function Receita({navigation}) {
       
       
     <View style={{alignItems:"center"}}>
-      <Image style={{ width: 300, height: 180, borderRadius: 20}} source={require('../../Img/mousse.jpeg')}/>
+      <View style={styles.frameRecipe}>
+          <Image style={{ width: 313, height: 150, borderRadius: 20}} source={require('../../Img/mousse.jpeg')}/>
+          <View style={styles.favorite}>
+            <TouchableOpacity style={{alignItems:'center',justifyContent:"center", marginTop:3}}>
+             <Ionicons name="heart" color="red" size={24}/>
+            </TouchableOpacity>
+          </View>
+        </View>
     </View>
 
     <Text style={{ color: '#000', fontSize: 15, marginLeft: 17, fontWeight:"bold", marginTop: 5  }}>Mousse de Maracujá</Text>
 
-    <View style={{flexDirection:"row", alignItems:"flex-end", borderBottomWidth: 1}}>
+    <View style={{marginLeft:8,flexDirection:"row", alignItems:"flex-end", borderBottomWidth: 1}}>
       <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
-                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
-                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
-                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
-                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
-                <Image style={{ width: 17, height: 18, marginTop: 8, marginLeft: 6}} source={require('../../Img/Icon/estrela.png')}/>
+                <Ionicons name="star-outline" color="#000" size={18}/>
       </TouchableOpacity>
+      <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
+                <Ionicons name="star-outline" color="#000" size={18}/>
+      </TouchableOpacity>
+      <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
+                <Ionicons name="star-outline" color="#000" size={18}/>
+      </TouchableOpacity>
+      <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
+                <Ionicons name="star-outline" color="#000" size={18}/>
+      </TouchableOpacity>
+      <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
+                <Ionicons name="star-outline" color="#000" size={18}/>
+      </TouchableOpacity>
+      
     </View>
 
     <View>
@@ -46,49 +63,60 @@ export function Receita({navigation}) {
     <View style={{ flexDirection: 'row' }}>
      <Text style={{ color: '#000', fontSize: 14,marginLeft:17,marginBottom:5,marginTop:5, }}>6 Porções</Text>
 
+     
+     {/*Botões de MAIS e MENOS*/}
+     
      <View style={styles.buttonMoreLess}>
-     <TouchableOpacity>
-        <Image style={{ marginLeft: 38, marginTop: 1, borderLefttWidth: 1 }} source={require('../../Img/Icon/mais.png')}/>
-      </TouchableOpacity>
-
-      <View style={{borderWidth: 1, marginLeft: -23}}></View>
-
-      <TouchableOpacity>
-        <Image style={{ marginLeft: -25, marginTop: 1, borderLefttWidth: 1 }} source={require('../../Img/Icon/menos.png')}/>
-      </TouchableOpacity>
-
+        <View>
+          <TouchableOpacity style={styles.buttonMore}>
+              <Ionicons name="add" color="#000" size={18}/>
+            </TouchableOpacity>
+        </View>
+        <View>
+        <TouchableOpacity style={styles.buttonLess}>
+            <Ionicons name="remove" color="#000" size={18}/>
+          </TouchableOpacity>
+        </View>
      </View>
-
+     
     </View>
     </View>
 
-    <View style={{borderBottomWidth:1}}>
-     <View style={{marginLeft:17,marginBottom:10}}>
-    <Text style={{ color: '#000', fontSize: 10 }}>1 lata de leite condensado</Text>
-    <Text style={{ color: '#000', fontSize: 10 }}>1 lata de suco de Maracujá</Text>
-    <Text style={{ color: '#000', fontSize: 10 }}>1 lata de creme de leite</Text>
-    </View>
-    </View>
 
-    <View style={{borderBottomWidth:1,
-    }}>
-    <Text style={{ color: '#000',marginLeft:17,marginBottom:10,marginTop:10, fontSize: 18, fontWeight:"bold" }}>Modo de Preparo</Text>
-    <Text style={{ color: '#000', fontSize: 10,marginLeft:17 ,marginBottom:10}}>-Em um liquidificador, bata o Leite MOÇA, o NESTLÉ Creme de Leite, o suco de maracujá e a gelatina. Coloque em taças individuais.</Text>
 
- <Text style={{ color: '#000', fontSize: 10 ,marginLeft:17,marginBottom:10}}>-Leve à geladeira até ficar firme, por cerca de 2 horas. Sirva.</Text>
-    </View>
+  <View style={{borderBottomWidth:1}}>
+      <View style={{marginLeft:17,marginBottom:10}}>
+          <Text style={styles.ingredientes}>1 lata de leite condensado</Text>
+          <Text style={styles.ingredientes}>1 lata de suco de Maracujá</Text>
+          <Text style={styles.ingredientes}>1 lata de creme de leite</Text>
+      </View>
+  </View>
 
-    <View style={{alignItems:"center",marginTop:10}}>
-    <View style={{flexDirection:"row"}}>
-    <Text style={{ color: '#000', fontSize: 14, fontWeight:"bold" }}>Tempo - </Text>
-    <Text style={{ color: '#000', fontSize: 14 , fontWeight:"bold"}}>Dificuldade</Text>
-    </View>
     
-
-        <View style={{flexDirection:"row"}}>
-    <Text style={{ color: '#000', fontSize: 14, fontWeight:"bold" }}>5min    -    </Text>
-    <Text style={{ color: '#000', fontSize: 14, fontWeight:"bold" }}>Fácil</Text>
+    
+    
+    <View style={{borderBottomWidth:1}}>
+        <Text style={styles.containerMododePreparo}>Modo de Preparo</Text>
+        <Text style={styles.mododePreparo}>
+            -Em um liquidificador, bata o Leite MOÇA, o NESTLÉ
+            Creme de Leite, o suco de maracujá e a gelatina. 
+            Coloque em taças
+            individuais. Leve à geladeira até ficar 
+            firme, por cerca de 2 horas. Sirva.
+        </Text>
     </View>
+
+
+    {/*Tempo e dificuldade*/}
+    <View style={{alignItems:"center",marginTop:10}}>
+        <View style={{flexDirection:"row"}}>
+          <Text style={styles.tempoEdificuldade}>Tempo - </Text>
+          <Text style={styles.tempoEdificuldade}>Dificuldade</Text>
+        </View>
+        <View style={{flexDirection:"row"}}>
+          <Text style={styles.tempoEdificuldade}>5min    -    </Text>
+          <Text style={styles.tempoEdificuldade}>Fácil</Text>
+        </View>
     </View>
     </View>
   );
