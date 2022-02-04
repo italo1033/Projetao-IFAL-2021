@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 
+  //Header
   isBackgroundGeneral:{
     flex:1,
     justifyContent:"center",
@@ -17,6 +18,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row'
   },
 
+  //Receita do dia
   frameRecipeDay: {
     width: 313,
     height: 150,
@@ -26,6 +28,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#D3D3D3'
   },
 
+
+  //Receitas
   frameRecipe: {
     width: 150,
     height: 100,
@@ -35,6 +39,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#D3D3D3'
   },
 
+  //Botão adicionar aos favoritos
   favorite: {
     width: 30, 
     height: 30,

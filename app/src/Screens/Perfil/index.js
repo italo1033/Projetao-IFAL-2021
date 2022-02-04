@@ -51,16 +51,16 @@ export function Perfil({route, navigation}) {
         />
         </View>
       
+       
+      {/* O trecho de código entre as linhas 56 e 64 tem como objetivo apresentar um campo de texto por meio da       tag TextInput, juntamente com um icone através das tags Image e TouchableOpacity, para que o usuário            possa digitar seu respecitivo e-mail.*/}
         <View style={styles.icon}>
           <TouchableOpacity  style={styles.buttonInput}><Image source={require('../../Img/Icon/lapis.png')}/></TouchableOpacity>
           <TextInput
             style={styles.textInput}
             placeholder="Email"
             placeholderTextColor= 'black'
-            
             returnKeyType="done"    
           />
-
         </View>
         
         <View style={styles.icon}>

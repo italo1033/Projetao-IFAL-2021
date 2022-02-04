@@ -21,7 +21,7 @@ import {Receita} from './src/Screens/Receita/index';
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Perfil">
+      <Stack.Navigator initialRouteName="Cadastro">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 

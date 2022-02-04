@@ -9,6 +9,16 @@ import bcrypt from 'react-native-bcrypt';
 
 export function Login({route, navigation}) {
 
+{/* @NOME_DA_FUNÇÃO */}
+{/* @PARAMETROS */}
+{/* @FUNCIONALIDADE */}
+
+
+{/* Nome: isValidate */}
+{/* Parametros: email, password, name, cpf, birthDate, passwordConfirm */}
+{/* Funcionalidade: A função isValidate retorna a validação dos campos com as informações do usuário. */}
+
+
   const [emailLogin, setEmailLogin] = useState('');
   const [errorEmailLogin, setErrorEmailLogin] = useState(null);
 

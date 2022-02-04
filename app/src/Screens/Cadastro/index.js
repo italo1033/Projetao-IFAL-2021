@@ -6,7 +6,7 @@ import Header from "../../Componentes/Header";
 import PassMeter from "react-native-passmeter";
 
 
-
+{/*O trecho de código da linha 10 a 12 está relacionado a força da senha que é utilizado para medir a dificuldade da senha do usuário.*/}
 const MAX_LEN = 15,
   MIN_LEN = 6,
   PASS_LABELS = ["Muito Fraca", "Fraca", "Razoável", "Forte", "Segura"];
@@ -37,10 +37,13 @@ export function Cadastro({navigation}) {
   const [senha, setSenha] = useState('')
   const [errorSenha, setErrorSenha] = useState('')
 
+  {/*Nome: validar.*/}
+  {/*Parametros: Nenhum.*/}
+  {/*Funcionalidade: A função validar retornar a validação das informações fornecidas pelo usuário.*/}
   const validar = () => {
     let error = false
   
-    // Validando Email
+    {/*O trecho de código da linha 47 a 52 representa a validação do email do usuário.*/}
     setErrorEmail(null)
     const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!regexEmail.test(String(email).toLowerCase())){
@@ -48,7 +51,9 @@ export function Cadastro({navigation}) {
       error = true
     }
 
-    // Validando CPF
+    {/*Nome: cpfCalculo.*/}
+    {/*Parametros: qtdNum, cpfNumber, increment.*/}
+    {/*Funcionalidade: A função cpfCalculo retorna basicamente a multiplicação dos dígitos com os descrementos que está relacionado a validação do CPF.*/}
     function cpfCalculo(qtdNum, cpfNumber, increment) {
       var valor = cpfNumber.substr(0, qtdNum), soma2 = 0
       for(let i=0; i<valor.length; i++) {
@@ -58,11 +63,15 @@ export function Cadastro({navigation}) {
       return soma2
     } 
 
+    {/*Nome: somaDigitos.*/}
+    {/*Parametros: soma*/}
+    {/*Funcionalidade: A função somaDigitos retorna basicamente outra parte da validação do CPF do usuário.*/}
     function somaDigitos(soma) {
       var result = (soma * 10) % 11
       return String(result)
     }
 
+    {/*O trecho de código da linha 75 a 105 representa toda a validação do CPF com a utilização das funções explicadas acima e, também faz algumas condições com o IF para saber se aquele CPF é válido ou inválido.*/}
     setErrorCpf(null)
     const regexCPF =/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
     if(!regexCPF.test(cpf)) {
@@ -96,7 +105,7 @@ export function Cadastro({navigation}) {
     }
     
 
-    // validando Nome
+    {/*O trecho de código da linha 103 a 108 representa a validação do nome do usuário.*/}
     setErrorNome(null)
     const regexNome= /[^a-zà-ú]/gi
     if (!regexNome.test(nome)) {
@@ -104,7 +113,7 @@ export function Cadastro({navigation}) {
       error = true
     }
 
-    // validando Senha
+    {/*O trecho de código da linha 111 a 116 representa a validação da senha do usuário.*/}
     setErrorSenha(null)
     const regexSenha= /^[a-z0-9_-]/
     if (!regexSenha.test(senha)) {
@@ -115,10 +124,11 @@ export function Cadastro({navigation}) {
     return !error
   }
 
+  {/*O trecho de código da linha 122 e 123 representa o hash da senha como uma forma de tornar mais seguro a senha do usuário.*/}
   const car = bcrypt.genSaltSync(10)
   const novaSenha = bcrypt.hashSync(senha, car)
 
-
+  {/*O trecho de código da linha 126 a 132 é uma estrutura de dados com as informações do usuário.*/}
   const dados = [
    {'Nome': nome },
    {'CPF': cpf},
@@ -127,6 +137,9 @@ export function Cadastro({navigation}) {
    {'Senha': novaSenha}
   ]
 
+  {/*Nome: salvarDados.*/}
+  {/*Parametros: Nenhum.*/}
+  {/*Funcionalidade: A função salvarDados retorna, caso todos os dados estejam validados, as informações do usuário e redireciona para a tela Login.*/}
   const salvarDados = () => {
     if(validar()) {
       console.log(dados)
@@ -134,6 +147,7 @@ export function Cadastro({navigation}) {
     }
   }
 
+  {/*O trecho de código da linha 145 a 156 representa a data de nascimento do usuário.*/}
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
@@ -150,7 +164,10 @@ export function Cadastro({navigation}) {
   return (
     <View style={styles.isBackgroundGeneral}>
 
+    {/*O trecho de código da linha 162 representa o header do app.*/}
     <Header />
+
+    {/*O trecho de código da linha 165 a 248 tem como objetivo mostrar os campos de texto para o usuário digitar suas informações através da tag TextInput e embaixo de cada campo tem a sua respectiva validação através da tag Text. Além disso, na linha 224 a 230 é a força da senha que vai medir se a sequência que o usuário colocou, é seguro e logo no final tem o botão Cadastrar que tem o objetivo cadastrar os dados do usuário através da tag TouchableOpacity.*/}
     <View style={styles.subContainer}>
 
 
