@@ -2,16 +2,19 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
+  //Background geral
   isBackgroundGeneral: {
     flex:1,
     alignItems:"center",
   },
 
+  //Icones
   icon: {
     flexDirection: 'row',
     alignItems: 'center'
   },
   
+  //Estilização da tag TextInput
   textInput: {
     marginTop: 5,
     backgroundColor: '#DCDCDC',
@@ -28,11 +31,13 @@ export const styles = StyleSheet.create({
     borderWidth: 1
   },
 
+  //Estilização dos botões
   buttonInput: {
     marginLeft: 170,
     position: 'absolute'
   },
 
+  //Estilização dos botões
   buttonLogin: {
     fontSize: 20,
     backgroundColor: '#FFFF00',
@@ -45,6 +50,7 @@ export const styles = StyleSheet.create({
     marginTop: 30,
   },
   
+  //Estilização do Header
   headerContainer: {
     backgroundColor: '#ffff00',
     marginBottom: 20,
@@ -53,7 +59,6 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: "row",
     marginTop: 5,
-    
   },
   
 });

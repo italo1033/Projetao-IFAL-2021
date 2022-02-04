@@ -2,11 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
+  //Background geral
   isBackgroundGeneral: {
     flex:1,
     alignItems:"center",
   },
 
+  //Botão de login 
   buttonLogin: {
     fontSize: 20,
     backgroundColor: '#FFFF00',
@@ -17,6 +19,7 @@ export const styles = StyleSheet.create({
     margin: 5
   },
 
+  //Botão de login via Google
   buttonGmail: {
     flexDirection: 'row',
     fontSize: 30,
@@ -28,6 +31,7 @@ export const styles = StyleSheet.create({
     margin: 5
   },
 
+  //Botão de login via facebook
   buttonFacebook: {
     flexDirection: 'row',
     fontSize: 20,
@@ -38,7 +42,6 @@ export const styles = StyleSheet.create({
     width: 180,
     margin: 5,
     marginTop: 25
-
   }
   
 });
