@@ -12,6 +12,8 @@ import { Header as HeaderRNE, HeaderProps, Icon } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+
+
 type HeaderComponentProps = {
   title: string;
   view?: string;

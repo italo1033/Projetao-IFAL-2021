@@ -9,6 +9,8 @@ import Category from '../../Componentes/Category';
 export function Receita({navigation}) {
   
   return (
+
+    //Esse View ele é responsavel pelo o nosso  header onde fica o nosso icone e o nome da pagina
     <View style={styles.isBackgroundGeneral}>
 
          <View style={styles.headerContainer}>
@@ -23,8 +25,10 @@ export function Receita({navigation}) {
                 <View style={{alignItems: 'center'}}>
   
     </View>
+
+
       
-      
+    {/*esse View é responsavel pela a imagem grande do comida e pelo o icone de gostei  em forma de coração*/}
     <View style={{alignItems:"center"}}>
       <View style={styles.frameRecipe}>
           <Image style={{ width: 313, height: 150, borderRadius: 20}} source={require('../../Img/mousse.jpeg')}/>
@@ -36,8 +40,10 @@ export function Receita({navigation}) {
         </View>
     </View>
 
+     {/*texto da comida*/}
     <Text style={{ color: '#000', fontSize: 15, marginLeft: 17, fontWeight:"bold", marginTop: 5  }}>Mousse de Maracujá</Text>
 
+     {/*View das estrelas*/}
     <View style={{marginLeft:8,flexDirection:"row", alignItems:"flex-end", borderBottomWidth: 1}}>
       <TouchableOpacity style={{marginLeft:10, flexDirection: 'row'}}>
                 <Ionicons name="star-outline" color="#000" size={18}/>
@@ -57,6 +63,7 @@ export function Receita({navigation}) {
       
     </View>
 
+    {/*Seção dos infredientes*/}
     <View>
     <Text style={{ color: '#000', fontSize: 18,marginLeft:17,marginTop:10, fontWeight:"bold" }}>Ingredientes</Text>
 

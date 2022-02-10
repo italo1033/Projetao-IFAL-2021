@@ -15,8 +15,10 @@ export function Dispensa({navigation}) {
 
 const [selectedId, setSelectedId] = useState(null);
   return (
+
     <View style={styles.isBackgroundGeneral}>
-    
+
+    {/*esse card ele recebe os dados que tá no json e cria por meio dele a lista de ingredientes*/}
        <Card >
             {itemJson.DATE.map((index) => {
               return (
@@ -27,42 +29,11 @@ const [selectedId, setSelectedId] = useState(null);
               );
             })}
           </Card>
-
-           <Card >
-            {itemJson.DATE.map((index) => {
-              return (
-                <View   style={{flexDirection:"row", justifyContent:'space-between'}}>
-                  <Text>{index.title}</Text>
-                  <TouchableOpacity onPress={()=> alert(index.id) }><Ionicons name='trash' color="red" size={25}/></TouchableOpacity>
-                </View>
-              );
-            })}
-          </Card>
-
-          <Card >
-            {itemJson.DATE.map((index) => {
-              return (
-                <View   style={{flexDirection:"row", justifyContent:'space-between'}}>
-                  <Text>{index.title}</Text>
-                  <TouchableOpacity onPress={()=> alert(index.id) }><Ionicons name='trash' color="red" size={25}/></TouchableOpacity>
-                </View>
-              );
-            })}
-          </Card>
-          
-
       <View style={{alignItems:"center"}}>
-      <TouchableOpacity style={styles.buttonLogin}>
-      <Text>Ver Receitas</Text>
-      </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonLogin}>
+          <Text>Ver Receitas</Text>
+          </TouchableOpacity>
       </View>
-
-
-
-
-          
-    
-
     </View>
   );
 }

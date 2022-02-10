@@ -5,11 +5,21 @@ import { Header as HeaderRNE, HeaderProps, Icon } from 'react-native-elements';
 
 import Category from '../../Componentes/Category';
 
+{/* Nome: Receitas*/}
+{/* Parametros: navigation*/}
+{/* Funcionalidade: Exibe todas as receitas na tela, juntamente com
+imagem, nome e ícone para favoritá-la*/}
+
 export function Receitas({navigation}) {
   
   return (
     <View style={styles.isBackgroundGeneral}>
-      
+
+      {/* O trecho do código entre as linhas 23 e 34 tem como objetivo
+personalizar o texto do cabeçalho com estilos definidos pela tag style,
+para que o texto fique centralizado e tenha as caracteristicas do
+estilo escolhido*/}
+
   <View style={styles.headerContainer}>
                   <Text style={{
                               fontFamily: 'Salsa_400Regular',
@@ -22,6 +32,12 @@ export function Receitas({navigation}) {
                 <View style={{alignItems: 'center'}}>
   
     </View>
+
+    {/* O trecho do código entre as linhas 42 e 53 tem como objetivo
+mostrar a imagem da receita, nome e a opção de favoritá-la. Para isso
+são usadas as tags Image, TouchableOpacity e Text, juntamente com um
+icone atraves das tag Image e TouchableOpacity para favoritar as
+receitas*/}
 
     <View style={{ flexDirection: 'row' }}> 
       <View>   
@@ -36,6 +52,12 @@ export function Receitas({navigation}) {
         <Text style={{ fontSize: 15, marginLeft: 7}}>Mousse de Maracujá</Text>
       </View>
 
+      {/* O trecho do código entre as linhas 61 e 72 tem como objetivo
+mostrar a imagem da receita, nome e a opção de favoritá-la.
+Para isso são usadas as tags Image, TouchableOpacity e Text, juntamente
+com um icone atraves das tag Image e TouchableOpacity para
+favoritar as receitas*/}
+
       <View>
         <TouchableOpacity style={styles.frameRecipe}>
           <Image style={{ width: 150, height: 100, borderRadius: 20 }} source={require('../../Img/nhoque.jpeg')}/>
@@ -49,6 +71,12 @@ export function Receitas({navigation}) {
       </View>
     </View>
     
+    {/* O trecho do código entre as linhas 80 e 91 tem como objetivo
+mostrar a imagem da receita, nome e a opção de favoritá-la. Para isso
+são usadas as tags Image, TouchableOpacity e Text, juntamente com um
+icone atraves das tag Image e TouchableOpacity para favoritar as
+receitas*/}
+
       <View style={{ flexDirection: 'row' }}>
         <View>
           <TouchableOpacity style={styles.frameRecipe}>
@@ -62,6 +90,12 @@ export function Receitas({navigation}) {
           <Text style={{ fontSize: 15, marginLeft: 60 }}>Esfiha</Text>
         </View>
         
+        {/* O trecho do código entre as linhas 99 e 109 tem como
+objetivo mostrar a imagem da receita, nome e a opção de favoritá-la.
+Para isso são usadas as tags Image, TouchableOpacity e Text, juntamente
+com um icone atraves das tag Image e TouchableOpacity para favoritar as
+receitas*/}
+
         <View>
           <TouchableOpacity style={styles.frameRecipe}>
             <Image style={{ width: 150, height: 100, borderRadius: 20 }} source={require('../../Img/coquitel.jpeg')}/>

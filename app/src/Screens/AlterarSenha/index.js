@@ -9,10 +9,11 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 export function AlterarSenha({route, navigation}) {
   
+  
 
   return (
     <View style={styles.isBackgroundGeneral}>
-      
+    {/*essa view ela é responsavel por criar o nosso header, com oicone e o nome alterar senha */}
        <View style={styles.headerContainer}>
               <TouchableOpacity style = {{marginLeft: 15}}>
                   <Icon name= "menu" color= "#8b0000" />
@@ -25,42 +26,40 @@ export function AlterarSenha({route, navigation}) {
                               textAlign: "center"
                   }}> Alterar Senha </Text>
         </View>
+
+      
       
       <View style={{width: 10, height: 30,}}>
 
       </View>
+
+      {/*   Neste View estão 3 textInputs: Senha Atual, Nova Senha, Confirme sua senha   */}
       <View style={styles.container}>
-        <TextInput
-          style={styles.textInput}
-          
-          placeholder="Senha Atual"
-          placeholderTextColor="black"
-                 
-      />
-      <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}></Text>
+            <TextInput
+              style={styles.textInput}
+              
+              placeholder="Senha Atual"
+              placeholderTextColor="black" />
+          <Text style={{color: '#FF0000', fontSize: 10, textAlign: 'center'}}></Text>
 
-        <View style={styles.container}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Nova senha"
-            placeholderTextColor= 'black'
-           
-            returnKeyType="done"    
-          />
-        
-        <TextInput 
-          style={styles.textInput}
-          keyboardType="number-pad" 
-          placeholder="Confirme sua senha" 
-          placeholderTextColor = 'black'
-          returnKeyType="done" 
-          
-      />
-      
-  
-        </View>
+            <View style={styles.container}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Nova senha"
+                placeholderTextColor= 'black'
+              
+                returnKeyType="done"    
+              />
+            
+            <TextInput 
+              style={styles.textInput}
+              keyboardType="number-pad" 
+              placeholder="Confirme sua senha" 
+              placeholderTextColor = 'black'
+              returnKeyType="done" />
+      </View>
 
-        
+         {/*  Este é o botão que confirma a troca de senha   */}
         <TouchableOpacity style={styles.buttonLogin}>
               <Text style={{ 
                               fontSize: 15,

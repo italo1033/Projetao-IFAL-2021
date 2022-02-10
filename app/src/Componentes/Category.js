@@ -4,6 +4,8 @@ import { StyleSheet, View, Text,TouchableOpacity, Image } from 'react-native';
 const Category = (props) => {
     return(
         <View style={styles.category}>
+
+        {/* O trecho de código entre as linhas 9 e 14 tem como objetivo apresentar um botão          por meio da tag TouchableOpacity, para que o usuário possa acessar as categorias.           Dentro dessa tag temos as tags Text, View e Image que têm como objetivo,                    respectivamente, apresentar o texto, a estilização e o ícone do botão. */}
             <TouchableOpacity>
                 <View style={styles.category2}>
                   <Image style={{ width: 32, height: 33, marginLeft: 3 }} source={props.icon}/>
@@ -14,6 +16,7 @@ const Category = (props) => {
     )
 }
 
+{/* O trecho de código entre as linhas 20 e 35 tem como objetivo incorporar a estilização das Views das linhas 6 e 10 por meio do StyleSheet. */}
 const styles = StyleSheet.create({
     category: {
         padding: 5,

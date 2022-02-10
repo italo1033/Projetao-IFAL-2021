@@ -5,11 +5,12 @@ import {Salsa_400Regular } from '@expo-google-fonts/salsa';
 
 function Header() {
   return (
-   
+          //   Icone do Menu   //
          <ImageBackground
             style={{height:240, width:'100%'}}
               source={require('../Img/ImageHeade.png')} >
-
+              
+            {/* Segunda parte do Título */}
               <Text style={{ height:200,
                     fontFamily: 'Salsa_400Regular',
                     fontSize: 55,
@@ -19,7 +20,7 @@ function Header() {
                     top: -10
                     }}> Receita de  </Text>
 
-
+            {/* Segunda parte do Título */}
             <Text style={{ height:200,
                     fontFamily: 'Salsa_400Regular',
                     fontSize: 55,
