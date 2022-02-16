@@ -1,11 +1,11 @@
 {
 "Laticinios_e_ovos": [
         {
-            "id":0,
+          "id":0,
           "title": "Ovo"
         },
         {
-             "id":1,
+          "id":1,
           "title": "Leite"
         },
         {
@@ -14,29 +14,17 @@
         },
         { 
           "id":3,
-          "title": "Nata"
-        },
-        { 
-          "id":4,
           "title": "Crene de leite"
-        },
-        {
-          "id":5,
-          "title": "Leite Condensado"
-        },
-                {
-          "id":6,
-          "title": "Leite em po"
         }
     ],
 
     "Hortalica_e_Verduras": [
         {
-            "id":0,
+          "id":0,
           "title": "Alho"
         },
         {
-             "id":1,
+          "id":1,
           "title": "Couve"
         },
         {
@@ -46,23 +34,15 @@
         { 
           "id":3,
           "title": "Chuchu"
-        },
-        { 
-          "id":4,
-          "title": "Alface"
-        },
-        {
-          "id":5,
-          "title": "Vagem"
         }
     ],
       "Frutas": [
         {
-            "id":0,
+          "id":0,
           "title": "Morango"
         },
         {
-             "id":1,
+          "id":1,
           "title": "açai"
         },
         {
@@ -85,11 +65,11 @@
 
     "farinha_Fermento_Laveduras": [
         {
-            "id":0,
+          "id":0,
           "title": "Farinha"
         },
         {
-             "id":1,
+          "id":1,
           "title": "Maizena"
         },
         {
@@ -99,11 +79,11 @@
     ],
     "Massas": [
         {
-            "id":0,
+          "id":0,
           "title": "Macarrão"
         },
         {
-             "id":1,
+          "id":1,
           "title": "Pão"
         },
         {

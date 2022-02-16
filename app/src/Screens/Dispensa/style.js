@@ -7,8 +7,22 @@ export const styles = StyleSheet.create({
     backgroundColor:"#fff",
   },
 
+  itemsCategory: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 10,    
+  },
 
-    container: {
+  category: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
+  ingredientes: {
+    fontSize: 14,
+  },
+
+  container: {
     flex: 1,
   },
   item: {
@@ -18,26 +32,39 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
-  textInput: {
-    backgroundColor: '#C4C4C4',
-    borderRadius: 10,
-    width: 180,
+
+  headerContainer: {
+    backgroundColor: '#ffff00',
+    marginBottom: 20,
+    width: '100%',
+    height: '7%',
+    display: 'flex',
+    flexDirection: "row",
+    marginTop: 5,
     justifyContent: 'center',
-    textAlign: 'center',
-    padding: 5,
-    flexDirection: 'row',
-    margin: 5,
-    hint: '#000'
+    alignItems: 'center',
+    
   },
 
-    buttonLogin: {
-    fontSize: 20,
-    backgroundColor: '#FFFF00',
-    borderRadius: 10,
-    width: 180,
-    alignItems:'center',
-    padding: 5,
-    margin: 5
+  buttons: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 20,
+    justifyContent: 'space-around'
   },
+
+  text: {
+    color: '#000',
+  },
+
+  buttonDespensa: {
+    borderWidth: 1,
+    padding: 10,
+    textAlign: 'center',
+    width: '45%',
+    height: '100%',
+    backgroundColor: '#DCDCDC',
+    border: 0
+  }
 
 });
