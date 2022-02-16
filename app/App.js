@@ -16,12 +16,13 @@ import {AlterarSenha} from './src/Screens/AlterarSenha/index';
 import {LoginFacebookGoogle} from './src/Screens/LoginFacebookGoogle/index';
 import {Receitas} from './src/Screens/Receitas/index';
 import {Receita} from './src/Screens/Receita/index';
+import {Assinatura} from './src/Screens/Assinatura/index';
 
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Receita">
+      <Stack.Navigator initialRouteName="Assinatura">
         <Stack.Screen
             name="SplashScreenInitial" 
             component={SplashScreenInitial} 
@@ -73,6 +74,10 @@ function App() {
         <Stack.Screen
             name="AlterarSenha" 
             component={AlterarSenha} 
+            options={{ headerShown: false}}/>
+        <Stack.Screen
+            name="Assinatura" 
+            component={Assinatura} 
             options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>

@@ -40,12 +40,19 @@
     "react-native-vector-icons": "*",
     "react-native-bouncy-checkbox": "*",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-linear-gradient": "*",
+    "@react-navigation/bottom-tabs": "*",
     "@react-navigation/native-stack": "*",
     "react-native-safe-area-context": "3.3.2",
     "react-native-modal-datetime-picker": "*",
     "react-native-password-strength-meter": "*",
+    "react-navigation-material-bottom-tabs": "*",
     "@react-native-community/datetimepicker": "3.5.2",
-    "react-native-password-strength-checker": "*"
+    "react-native-password-strength-checker": "*",
+    "@react-navigation/material-top-tabs": "*",
+    "react-native-pager-view": "5.4.6",
+    "react-native-tab-view": "^3.0.0",
+    "@react-navigation/material-bottom-tabs": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
