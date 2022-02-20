@@ -52,7 +52,8 @@
     "react-navigation-material-bottom-tabs": "*",
     "@react-native-community/datetimepicker": "3.5.2",
     "@react-navigation/material-bottom-tabs": "*",
-    "react-native-password-strength-checker": "*"
+    "react-native-password-strength-checker": "*",
+    "@react-navigation/stack": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
