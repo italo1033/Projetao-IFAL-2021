@@ -83,7 +83,7 @@ const [showF, setShowF] = useState(true);
         
         <View style={styles.itemsCategory}>
       <View>
-        <Text style={styles.category}>Farinhas, Fermentos e <br/>Leveduras</Text>
+        <Text style={styles.category}>Farinhas, Fermentos e Leveduras</Text>
         <Text style={styles.ingredientes}>4 ingredientes</Text>
       </View>
       <TouchableOpacity onPress={() => setShowF(!showF)}>

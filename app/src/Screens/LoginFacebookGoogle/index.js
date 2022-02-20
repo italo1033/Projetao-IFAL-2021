@@ -39,7 +39,6 @@ export function LoginFacebookGoogle({route, navigation}) {
         );
         const data = await response.json();
         setUser(data);
-      } else {
       }
     } catch ({ message }) {
       alert(`Facebook Login Error: ${message}`);
@@ -65,11 +64,22 @@ export function LoginFacebookGoogle({route, navigation}) {
           </TouchableOpacity>
         )}
 
+
+
+
+
+
+
         {/* O trecho de código entre as linhas 66 e 68 tem como objetivo apresentar um botão
         por meio da tag TouchableOpacity, a partir desse botão o usuário poderá realizar um         login via sua conta do google, onde ele poderá acessar o aplicativo informando suas         credenciais. Dentro dessa tag temos a tag Text, que tem como objetivo                       apresentar o texto dentro do botão */}
         <TouchableOpacity style={styles.buttonGmail} onPress={isSignInGoogle}> 
           <Image style={{ width: 20, height: 20 }} source={require('../../Img/Icon/google.ico')}/><Text style={{ marginLeft: 10 }}>Entrar com o Gmail</Text>
         </TouchableOpacity>  
+
+
+
+
+
 
         {/* O trecho de código entre as linhas 70 e 72 tem como objetivo apresentar um botão
         por meio da tag TouchableOpacity, a partir desse botão o usuário poderá entrar na           tela de Login, onde ele poderá acessar o aplicativo informando suas credenciais.            Dentro dessa tag temos a tag Text, que tem como objetivo apresentar o texto                 dentro do botão */}
@@ -77,9 +87,15 @@ export function LoginFacebookGoogle({route, navigation}) {
               <Text style={{ color: '#800000' }}>Fazer Login</Text>
         </TouchableOpacity>  
 
+
+
+
+
+
+
       {/* O trecho de código entre as linhas 73 e 75 tem como objetivo apresentar um botão
       por meio da tag TouchableOpacity, a partir desse botão o usuário poderá entrar no           aplicativo como visitante. Dentro dessa tag temos a tag Text, que tem como objetivo         apresentar o texto dentro do botão */}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={ ()=> navigation.navigate('Home')}>
         <Text style={{ marginTop: 50 }}>Entrar como visitante</Text> 
       </TouchableOpacity>
      

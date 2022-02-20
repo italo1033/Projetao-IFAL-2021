@@ -88,31 +88,9 @@ export function Assinatura({navigation}) {
     </View>
   );
   
-{/*O trecho de código da linha 91 a 129 está relacionado as estilizações das tags usadas na página.*/}
+//{/*O trecho de código da linha 91 a 129 está relacionado as estilizações das tags usadas na página.*/}
 }
   const styless = StyleSheet.create({
-  headerContainer: {
-    justifyContent: 'start',
-    alignItems: 'start',
-    backgroundColor: '#ffff00',
-    marginBottom: 20,
-    width: '100%',
-    paddingVertical: 15,
-    display: 'flex',
-    flexDirection: 'row'
-  },
-
-  heading: {
-    color: 'white',
-    fontSize: 22,
-    fontWeight: 'bold',
-  },
-
-  headerRight: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginTop: 5,
-  },
 
   frameRecipeDay: {
     width: '95%',
@@ -123,8 +101,4 @@ export function Assinatura({navigation}) {
     
     marginTop: 15
   },
-
-  linha: {
-    borderWidth: 1
-  }
 });

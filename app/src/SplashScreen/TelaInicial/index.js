@@ -5,8 +5,8 @@ export function SplashScreenInitial({ navigation }) {
   
   {/* O trecho de código entre as linhas 7 e 9 tem como objetivo temporizar a apresentação     da tela através do método setTimeout, e depois direcionar o usuário para a próxima          tela. */}
   setTimeout(() => {
-    navigation.navigate('Receitas');
-  }, 10000);
+    navigation.navigate('LoginFacebookGoogle');
+  }, 5000);
 
   return (
     <View
