@@ -10,17 +10,26 @@ import { Ionicons } from '@expo/vector-icons';
 export function Home({navigation}) {
 
   const [click, setClick] = useState(false);
-  const [clickArrow, setClickArrow] = useState(false);
   
   return (
     /*No trecho de código da linha 12 a 28 tem como objetivo mostrar o header da tela, que apresenta o botão menu, o de pesquisar e o de coração através da tag TouchableOpacity, para que o usuário tenha acesso a outras telas, pesquisar receitas e adicionar como favorita, respectivamente*/
     <View style={styles.isBackgroundGeneral}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity style ={{marginLeft: 290}} onPress={() => setClick(!click)}>
-          <Icon name="search" color="#8b0000" />
-        </TouchableOpacity>
+        {click ? (
+          <View> 
+            <TouchableOpacity onPress={() => setClick(!click)}>
+              <Ionicons style={{marginLeft: 12}} name='arrow-back-outline' size={20}/>  
+            </TouchableOpacity>
+            <View style={styles.search}>
+              <SearchBar /> 
+            </View>
+          </View>)
+        :
+          (<TouchableOpacity style ={{marginLeft: 290}} onPress={() => setClick(!click)}>
+            <Icon name="search" color="#8b0000" />
+          </TouchableOpacity>)
+        }
     </View>
-    {/*<Ionicons name='arrow-back-outline' size={20}/> */}
 
     {/*No trecho de código da linha 31 tem como objetivo mostrar o título principal através da tag Text.*/}
     <Text style={{ color: '#000', fontSize: 20, marginLeft: 15 }}>Receita do Dia</Text>

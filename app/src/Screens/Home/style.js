@@ -7,13 +7,22 @@ export const styles = StyleSheet.create({
     justifyContent:"center",
     alignItems:"center"
   },  
+
    headerContainer: {
     backgroundColor: '#ffff00',
     marginBottom: 20,
     width: '100%',
+    height: '12%',
     paddingVertical: 15,
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: 201,
+  },
+
+  search: {
+    marginLeft: 50,
+    marginTop: -25,
+    width: '84%',
   },
 
   //Receita do dia

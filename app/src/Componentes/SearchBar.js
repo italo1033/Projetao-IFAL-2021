@@ -15,7 +15,7 @@ const SearchBar= () => {
       borderWidth: 1,
       borderColor: '#g6ffff',
       width: '86%',
-      height: '8%',
+      height: '60%',
       }}
     />
   );
