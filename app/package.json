@@ -31,6 +31,7 @@
     "react-native-tab-view": "^3.0.0",
     "react-senha-checklist": "*",
     "react-native-passmeter": "*",
+    "@react-navigation/stack": "*",
     "check-password-strength": "*",
     "react-native-pager-view": "5.4.6",
     "react-native-reanimated": "~2.2.0",
@@ -52,8 +53,7 @@
     "react-navigation-material-bottom-tabs": "*",
     "@react-native-community/datetimepicker": "3.5.2",
     "@react-navigation/material-bottom-tabs": "*",
-    "react-native-password-strength-checker": "*",
-    "@react-navigation/stack": "*"
+    "react-native-password-strength-checker": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

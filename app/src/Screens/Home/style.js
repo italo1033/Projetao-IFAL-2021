@@ -8,8 +8,6 @@ export const styles = StyleSheet.create({
     alignItems:"center"
   },  
    headerContainer: {
-    justifyContent: 'start',
-    alignItems: 'start',
     backgroundColor: '#ffff00',
     marginBottom: 20,
     width: '100%',

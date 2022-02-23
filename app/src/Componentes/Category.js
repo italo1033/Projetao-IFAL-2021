@@ -8,8 +8,8 @@ const Category = (props) => {
         {/* O trecho de código entre as linhas 9 e 14 tem como objetivo apresentar um botão          por meio da tag TouchableOpacity, para que o usuário possa acessar as categorias.           Dentro dessa tag temos as tags Text, View e Image que têm como objetivo,                    respectivamente, apresentar o texto, a estilização e o ícone do botão. */}
             <TouchableOpacity>
                 <View style={styles.category2}>
-                  <Image style={{ width: 32, height: 33, marginLeft: 3 }} source={props.icon}/>
-                </View>
+                  <Image style={{ width: 50, height: 50}} source={props.icon}/>
+                  </View>
                 <Text style={{ textAlign: 'center', marginLeft: 4 }}>{props.type}</Text>
             </TouchableOpacity>
         </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 50,
         backgroundColor: '#D3D3D3',
-        padding: 5,
+        
         borderWidth: 1,
         borderColor: '#000'
       }

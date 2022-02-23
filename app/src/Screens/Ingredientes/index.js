@@ -12,10 +12,7 @@ const itemJson=require("../../DataBase/Categorias.json")
 export function Ingredientes({navigation}) {
 
   const [shouldShow, setShouldShow] = useState(true);
-
-
   
-
   return (
     <View>
       <View style={styles.headerContainer}>

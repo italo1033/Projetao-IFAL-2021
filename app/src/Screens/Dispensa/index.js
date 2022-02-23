@@ -41,8 +41,8 @@ const [showF, setShowF] = useState(true);
       </View>
       <TouchableOpacity onPress={() => setShowL(!showL)}>
         {showL ? 
-       <Ionicons style={{marginLeft: 95}} name='chevron-up-outline' size={23}/> :
-      <Ionicons style={{marginLeft: 95}} name='chevron-down-outline' size={23}/>
+       <Ionicons style={{marginLeft: 107}} name='chevron-up-outline' size={23}/> :
+      <Ionicons style={{marginLeft: 107}} name='chevron-down-outline' size={23}/>
         }
       </TouchableOpacity>
     </View>
@@ -64,8 +64,8 @@ const [showF, setShowF] = useState(true);
       </View>
       <TouchableOpacity onPress={() => setShowHV(!showHV)}>
         {showHV ? 
-       <Ionicons style={{marginLeft: 70}} name='chevron-up-outline' size={23}/> :
-      <Ionicons style={{marginLeft: 70}} name='chevron-down-outline' size={23}/>
+       <Ionicons style={{marginLeft: 85}} name='chevron-up-outline' size={23}/> :
+      <Ionicons style={{marginLeft: 85}} name='chevron-down-outline' size={23}/>
         }
       </TouchableOpacity>
     </View>
@@ -83,13 +83,14 @@ const [showF, setShowF] = useState(true);
         
         <View style={styles.itemsCategory}>
       <View>
-        <Text style={styles.category}>Farinhas, Fermentos e Leveduras</Text>
+        <Text style={styles.category}>Farinhas, Fermentos e</Text>
+        <Text style={styles.category}>Leveduras</Text>
         <Text style={styles.ingredientes}>4 ingredientes</Text>
       </View>
       <TouchableOpacity onPress={() => setShowF(!showF)}>
         {showF ? 
-       <Ionicons style={{marginLeft: 60}} name='chevron-up-outline' size={23}/> :
-      <Ionicons style={{marginLeft: 60}} name='chevron-down-outline' size={23}/>
+       <Ionicons style={{marginLeft: 80}} name='chevron-up-outline' size={23}/> :
+      <Ionicons style={{marginLeft: 80}} name='chevron-down-outline' size={23}/>
         }
       </TouchableOpacity>
     </View>

@@ -16,18 +16,16 @@ import { Receitas } from './src/Screens/Receitas/index';
 import { Receita } from './src/Screens/Receita/index';
 import { Assinatura } from './src/Screens/Assinatura/index';
 import { Favoritos} from './src/Screens/Favoritos/index'
-
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import  { Routes } from './src/routes/index'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 const Stack = createNativeStackNavigator();
-function routes(){
+function App(){
 return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName="SplashScreenInitial">
         <Stack.Screen
           name="SplashScreenInitial"
           component={SplashScreenInitial}
@@ -98,80 +96,12 @@ return (
           component={Assinatura}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Routes"
+          component={Routes}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-const Tab = createBottomTabNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home"
-      screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = focused
-                ? 'home-outline'
-                : 'home-outline';
-            } else if (route.name === 'Favoritos') {
-              iconName = focused 
-              ? 'heart-outline' 
-              : 'heart-outline';
-            } else if (route.name === 'Criar') {
-              iconName = focused 
-              ? 'add-circle-outline' 
-              : 'add-circle-outline';
-            } else if (route.name === 'Dispensa') {
-              iconName = focused 
-              ? 'clipboard-outline' 
-              : 'clipboard-outline';
-            
-            } else if (route.name === 'Perfil') {
-              iconName = focused 
-              ? 'person-circle-outline' 
-              : 'person-circle-outline';
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'red',
-          tabBarInactiveTintColor: 'gray',
-          tabBarStyle: {
-              backgroundColor: '#ffff00',
-          },
-        })}         
-        >
-      <Tab.Screen
-          name="Criar"
-          component={Criar}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Dispensa"
-          component={Dispensa}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }}
-        />
-         <Tab.Screen
-          name="Favoritos"
-          component={Favoritos}
-          options={{ headerShown: false }}
-        />
-         <Tab.Screen
-          name="Perfil"
-          component={Perfil}
-          options={{ headerShown: false }}
-        />
-      </Tab.Navigator>
     </NavigationContainer>
   );
 }

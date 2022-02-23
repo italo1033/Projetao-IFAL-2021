@@ -26,6 +26,8 @@ export function LoginFacebookGoogle({route, navigation}) {
     }
   };
 
+
+
   {/* O trecho de código entre as linhas 30 e 51 tem como objetivo permitir que o              usuário possa realizar login na sua conta do Facebook pelo aplicativo, permitindo com       que o app tenha acesso algumas informações, como nome de usuário, email e foto de           perfil. */}
   const isSignUpFacebook = async () => {
     try {
@@ -95,7 +97,7 @@ export function LoginFacebookGoogle({route, navigation}) {
 
       {/* O trecho de código entre as linhas 73 e 75 tem como objetivo apresentar um botão
       por meio da tag TouchableOpacity, a partir desse botão o usuário poderá entrar no           aplicativo como visitante. Dentro dessa tag temos a tag Text, que tem como objetivo         apresentar o texto dentro do botão */}
-      <TouchableOpacity onPress={ ()=> navigation.navigate('Home')}>
+      <TouchableOpacity onPress={ ()=> navigation.navigate('Routes')}>
         <Text style={{ marginTop: 50 }}>Entrar como visitante</Text> 
       </TouchableOpacity>
      

@@ -8,14 +8,14 @@ const SearchBar= () => {
 
   return (
     <Searchbar
-      placeholder="Pesquisar ingredientes"
+      placeholder="Procurar Ingredientes..."
       onChangeText={onChangeSearch}
       value={searchQuery}
       style={{borderRadius: 1,
-      borderWidth: 2,
+      borderWidth: 1,
       borderColor: '#g6ffff',
-      width: '90%',
-      height: '70%'
+      width: '86%',
+      height: '8%',
       }}
     />
   );
