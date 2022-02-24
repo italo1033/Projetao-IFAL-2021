@@ -10,10 +10,10 @@ export default {
         if(authorizatonHeader){
             const token = req.headers.authorization.split(' ')[1];
             const options:any = {
-                expiresIn: '5m',
+                expiresIn: '15m',
             };
             try{
-                result = jwt.verify(token, process.env.JWT_SECRET!, options);
+                result = jwt.verify(token, process.env.SECRET_TOKEN!, options);
                 
                 req.decoded = result;
                 
@@ -28,5 +28,7 @@ export default {
             };
             res.status(401).send(result);
         }
-    }
+    },
+
+    
 };

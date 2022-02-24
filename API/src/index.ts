@@ -2,16 +2,17 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Variaveis de ambiente
-const localConnUri: String | undefined  = process.env.MONGO_LOCAL_URL;
-const serverConnUri: String | undefined = process.env.MONGO_URL;
-const environment: String | undefined = process.env.NODE_ENV;
-const databaseUri: String | undefined = environment === 'development' ? localConnUri : serverConnUri;
+const localConnUri: string | undefined  = process.env.MONGO_LOCAL_URL;
+const serverConnUri: string | undefined = process.env.MONGO_URL;
+const environment: string | undefined = process.env.NODE_ENV;
+const databaseUri: any = environment === 'development' ? localConnUri : serverConnUri;
 
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import logger from 'morgan';
 import routes from './routes';
+import mongoose from 'mongoose';
 
 const app = express();
 const router = express.Router();
@@ -22,6 +23,20 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+mongoose.Promise = global.Promise;
+const mongooseOptions:any = { useNewUrlParser: true };
+try
+{
+    mongoose.connect(databaseUri, mongooseOptions)
+    console.log(`Connected to database ${databaseUri}`);
+}
+catch (err)
+{
+    console.log('Error on connecting to database');
+    console.log('And error is this: ' + err);
+}
+
 // Logger das reqs
 app.use(logger('dev'))
 
